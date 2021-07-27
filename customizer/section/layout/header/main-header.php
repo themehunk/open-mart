@@ -1,5 +1,22 @@
 <?php
 // main header
+
+/***************************************/
+// Disable product category search box
+/****************************************/
+
+$wp_customize->add_setting( 'open_mart_cat_search_disable', array(
+                'default'               => false,
+                'sanitize_callback'     => 'open_mart_sanitize_checkbox',
+            ) );
+$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'open_mart_cat_search_disable', array(
+                'label'                 => esc_html__('Check to disable Category in Search Box', 'open-mart'),
+                'type'                  => 'checkbox',
+                'section'               => 'open-mart-main-header',
+                'settings'              => 'open_mart_cat_search_disable',
+                'priority'   => 1,
+            ) ) );
+
 // choose col layout
 if(class_exists('open_mart_WP_Customize_Control_Radio_Image')){
         $wp_customize->add_setting(

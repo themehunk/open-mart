@@ -37,25 +37,36 @@ add_action( 'wp_ajax_nopriv_open_mart_product_count_update', 'open_mart_product_
  * @since 1.0.0
  */
 function open_mart_search_site(){
+   
+ if($_POST['cat']=='0' || $_POST['cat']==''){
+    $taxsrch = '';
+    }else{
+    $taxsrch = array(
+                        
+                          array(
+                              'taxonomy' => 'product_cat',
+                              'field' => 'slug',
+                              'terms' => $_POST['cat'],
+                          ),
+                        );
+  }
    $results = new WP_Query( array(
     'post_type'     => 'product',
     'post_status'   => 'publish',
     'nopaging'      => true,
     'posts_per_page'=> 100,
     's'             => $_POST['match'],
+    'tax_query' => $taxsrch,
   ) );
   $items = array();
-  if ( !empty( $results->posts ) ) {
-    foreach ( $results->posts as $result ) {
-     $id = $result->ID; 
-     $temp_array = array();
-     $temp_array = $result->post_title;
-     $items[]=$temp_array;
+  if ( !empty( $results->posts ) ){
+    foreach ( $results->posts as $result ){
+      $product = wc_get_product($result->ID);
+      $items[] = array('label' => $result->post_title,'link' => get_permalink($result->ID), 'imglink' => get_the_post_thumbnail($result->ID, 'thumbnail' ),'price' => $product->get_price_html(), 'urli' => $urli);
      
     }
   }
  wp_send_json_success( $items );
- die();
 }
 add_action( 'wp_ajax_open_mart_search_site',        'open_mart_search_site' );
 add_action( 'wp_ajax_nopriv_open_mart_search_site', 'open_mart_search_site' );

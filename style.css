@@ -4,9 +4,9 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.1.5
+Version: 1.1.6
 Requires at least: 4.5
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -62,11 +62,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
     margin: 0!important;
     font-size:16px;
 }
-.ui-autocomplete-loading { 
-  background:url('image/Spinner.gif') no-repeat right center!important;  
-  transition: none!important;
-}
-.ui-helper-hidden-accessible{display:none};
+
 /***********************/
 /*structure style*/
 /***********************/
@@ -1843,6 +1839,7 @@ opacity: 1;
     width:50%;
     max-width: 100%;
     -webkit-appearance: none;
+
 }
 .vert-brd:after{
   content: '';
@@ -1860,13 +1857,15 @@ select#product_cat{
    width: 50%;
     border-left:none!important;
     border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px
+    border-bottom-right-radius: 30px;
+    
 }
 #search-box input[type="text"],select#product_cat{
     height: 45px;
     padding: 0px 15px;
     border: 0;
     background: none;
+
 }
 
 #search-button {
@@ -1905,37 +1904,115 @@ background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-grad
     background-size: 5px 5px, 5px 5px, 1px 1.5em;
     background-repeat: no-repeat;
 }
-.ui-widget.ui-widget-content {
+.th-wp-auto-search.ui-widget.ui-widget-content {
     border: 1px solid #c5c5c5;
 z-index:99999999;
 position:relative;
 }
-.ui-widget.ui-widget-content {
+.th-wp-auto-search.ui-widget.ui-widget-content {
 border: 1px solid #c5c5c5;
 z-index:99999999;
-position:relative;
-max-width:280px!important;
-max-height:250px;
+position: relative;
+max-height:320px;
 overflow-y: auto;
 overflow-x: hidden;
 background: #fff;
 }
-.ui-widget.ui-widget-content::-webkit-scrollbar {
-    width:5px;
+
+.th-wp-auto-search.has-search-category{
+  max-width:640px!important;
 }
-::-webkit-scrollbar-track-piece {
+
+.th-wp-auto-search.no-has-search-category{
+  max-width:560px!important;
+}
+
+/***************/
+/*Scrollbar*/
+/***************/
+.th-wp-auto-search::-webkit-scrollbar,
+#product_cat::-webkit-scrollbar{
+    width:3px;
+
+}
+.th-wp-auto-search::-webkit-scrollbar-track-piece,
+#product_cat::-webkit-scrollbar-track-piece{
     background: #eee;
+
 }
-::-webkit-scrollbar-thumb {
-    background:#ddd;
+.th-wp-auto-search::-webkit-scrollbar-thumb,
+#product_cat::-webkit-scrollbar-thumb{
+    background:#111;
 }
+
 .ui-menu .ui-menu-item{
-padding:4px 15px;
+padding:0px;
 }
+
 .ui-menu-item.ui-state-focus {
 background: #eee;
-color:#ff0052;
+color:#111;
 }
+.th-wp-auto-search .srch-prd-img{
+width:60px;
+}
+
+.th-wp-auto-search li a{
+display: flex;
+align-items: center;
+padding: 15px;
+transition: background 0.2s ease-in-out;
+}
+.th-wp-auto-search .srch-prd-content{
+display:flex;
+flex-direction: column;
+}
+.th-wp-auto-search li a:hover{
+background:#f7f6f5;
+}
+.th-wp-auto-search .title,.th-wp-auto-search .price{
+    font-family: "JosefinSans-SemiBold", sans-serif;
+}
+.th-wp-auto-search .price{
+color: #111;
+font-size:11px;
+}
+.th-wp-auto-search .search-bar__view-all{
+width:100%;
+padding:10px 0px;
+    text-align: center;
+    background:#f7f6f5;
+    display:block; 
+}
+.th-wp-auto-search .no-result-msg {
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    background: #f7f6f5;
+    display: block;
+}
+.ui-autocomplete-loading { 
+transition: none!important;
+}
+#search-button.ui-autocomplete-loading:before{
+content: url(image/Spinner.gif);
+top: 2px;
+right: 0px;
+position: absolute;
+width: 45px;
+}
+.ui-helper-hidden-accessible{
+  display:none
+}
+
+#search-button.ui-autocomplete-loading .btn-text{
+visibility: hidden;
+}
+
+.catdisable form, .catdisable input[type="text"]{
+  width: 88% !important;
+}
+
 /*   Main Header Menu Icon       */
 .main-header-bar .menu-toggle{
   display: none;
@@ -8544,6 +8621,20 @@ display: none;
 .thunk-highlight-col{
   padding: 15px;
 }
+
+.th-wp-auto-search.has-search-category{
+  max-width:490px!important;
+}
+
+.th-wp-auto-search.no-has-search-category{
+  max-width:430px!important;
+}
+select#product_cat {
+    width: 40%;
+    z-index: 1;
+  }
+
+
 }
 @media screen and (min-width: 768px) and (max-width: 980px){
 .sidebar-content-area,
@@ -9060,6 +9151,15 @@ width:50%;
   line-height: 27px;
   margin-bottom: 10px;
 }
+
+.th-wp-auto-search.has-search-category{
+  max-width:350px!important;
+}
+
+.th-wp-auto-search.no-has-search-category{
+  max-width:300px!important;
+}
+
 }
 @media screen and (max-width: 767px){
   .main-header-col1{
@@ -9849,6 +9949,9 @@ font-size:11px;
     padding: 0px 10px;
     font-size:11px;
   }
+
+
+
 .woocommerce ul.order_details {
     margin: 0 0 0em;
 }
@@ -10078,6 +10181,13 @@ a.slide-btn,
 .thunk-contact-col:nth-child(2n+2){
   margin-right: 0;
 }
+.th-wp-auto-search.has-search-category{
+  max-width:350px!important;
+}
+
+.th-wp-auto-search.no-has-search-category{
+  max-width:300px!important;
+}
 }
 
 @media screen and (max-width:550px){
@@ -10116,9 +10226,21 @@ a.slide-btn,
   width:50%;
 } 
 
+#search-button.ui-autocomplete-loading:before{
+top:2px
+right: 0px;
+}
+
+.th-wp-auto-search.no-has-search-category{
+  max-width:300px!important;
+}
+
 }
 @media screen and (max-width: 350px){
 .below-header-col2 {
     width: 36%;
   }
+  .th-wp-auto-search.no-has-search-category{
+  max-width:250px!important;
+}
 }
