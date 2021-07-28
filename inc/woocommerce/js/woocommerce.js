@@ -214,7 +214,10 @@
                        'match':matcher,  
                        'cat':cat,              
                        },
-                      success: function(res){ 
+                      success: function(res){
+
+                        console.log('response->',res);
+
                         if(res.data.length!== 0){
                         var oldFn = $.ui.autocomplete.prototype._renderItem;
                         $.ui.autocomplete.prototype._renderItem = function( ul, item){
