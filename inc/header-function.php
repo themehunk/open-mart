@@ -650,23 +650,34 @@ if( $description || is_customize_preview() ):?>
 /***************************/
 // Product search
 /***************************/
-function open_mart_product_search_box(){ ?>             
-<div id='search-box' class="wow thmkfadeInDown" data-wow-duration="1s">
+function open_mart_product_search_box(){
+
+$catdisable = (get_theme_mod('open_mart_cat_search_disable')!==true)?'':'catdisable';
+ ?>             
+<div id='search-box' class="<?php echo $catdisable; ?>" class="wow thmkfadeInDown" data-wow-duration="1s">
 <form action='<?php echo esc_url( home_url( '/'  ) ); ?>' id='search-form' class="woocommerce-product-search" method='get' target='_top'>
-   <input id='search-text' name='s' placeholder='<?php echo esc_attr(get_theme_mod('search_box_text',esc_attr_x( 'Search for Product', 'placeholder', 'open-mart' ))); ?>' class="form-control search-autocomplete" value='<?php echo get_search_query(); ?>' type='text' title='<?php echo esc_attr_x( 'Search for:', 'label', 'open-mart' ); ?>' />
-   <div class="vert-brd" ></div>
+      <input id='search-text' name='s' placeholder='<?php echo esc_attr(get_theme_mod('search_box_text',esc_attr_x( 'Search for Product', 'placeholder', 'open-mart' ))); ?>' class="form-control search-autocomplete" value='<?php echo get_search_query(); ?>' type='text' title='<?php echo esc_attr_x( 'Search for:', 'label', 'open-mart' ); ?>' />
+
+
    <?php 
-if ( class_exists( 'WooCommerce' ) ):
+if ( class_exists( 'WooCommerce' ) && $catdisable==''):
+    ?> 
+<div class="vert-brd" ></div> 
+<?php
 $args = array(
    'taxonomy' => 'product_cat',
    'name' => 'product_cat',
+  'orderby'    => 'menu_order',
    'value_field' => 'slug',
-   'class' => 'something',
-   'show_option_all'   => 'All Category',
+   'class' => 'ui-autocomplete-input',
+   'show_option_all'   => __('All Category','open-mart'),
 );
+
 wp_dropdown_categories( $args );
+
 endif;
 ?>
+
                         <button id='search-button' value="<?php echo esc_attr_x( 'Submit','submit button', 'open-mart' ); ?>" type='submit'>   <span class="btn-text"><?php echo __('Search','open-mart'); ?> </span>      
                           <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
