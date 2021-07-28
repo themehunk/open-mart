@@ -36,53 +36,8 @@ add_action( 'wp_ajax_nopriv_open_mart_product_count_update', 'open_mart_product_
  *
  * @since 1.0.0
  */
-function open_mart_search_site__(){
-   
- if(isset($_POST['cat']) && ($_POST['cat'] || $_POST['cat']!=='')){
-     
-      // $tcate = sanetize($_POST['cat']);
-    $taxsrch = '';
-
-    }else{
-    $taxsrch = array(
-                        
-                          array(
-                              'taxonomy' => 'product_cat',
-                              'field' => 'slug',
-                              'terms' => $_POST['cat'],
-                          ),
-                        );
-
-
-  }
-
-
-   $results = new WP_Query( array(
-    'post_type'     => 'product',
-    'post_status'   => 'publish',
-    'nopaging'      => true,
-    'posts_per_page'=> 100,
-    's'             => $_POST['match'],
-    'tax_query' => $taxsrch,
-  ) );
-  $items = array();
-  if ( !empty( $results->posts ) ){
-    foreach ( $results->posts as $result ){
-      $product = wc_get_product($result->ID);
-      $items[] = array('label' => $result->post_title,'link' => get_permalink($result->ID), 'imglink' => get_the_post_thumbnail($result->ID, 'thumbnail' ),'price' => $product->get_price_html(), 'urli' => $urli);
-     
-    }
-  }
- wp_send_json_success( $items );
-}
-
-
-
 function open_mart_search_site(){
-   
-//         wp_send_json_success( $_POST );
-// return;
- if(isset($_POST['match']) && $_POST['match'] != ''){
+if(isset($_POST['match']) && $_POST['match'] != ''){
 
      if(isset($_POST['cat']) && $_POST['cat'] !== '' && $_POST['cat'] !== '0'){
         $category_ = sanitize_text_field($_POST['cat']);
@@ -106,7 +61,6 @@ function open_mart_search_site(){
           's'             => $match_,
           'tax_query' => $taxsrch,
         ) );
-        // wp_send_json_success( ['match'=>$match_,'cate'=>$_POST['cat'],'cate_condition'=>$taxsrch] );
 
         $items = array();
         if ( !empty( $results->posts ) ){
@@ -118,12 +72,8 @@ function open_mart_search_site(){
         }
         wp_send_json_success( $items );
     }
-
-
   
 }
-
-
 
 add_action( 'wp_ajax_open_mart_search_site',        'open_mart_search_site' );
 add_action( 'wp_ajax_nopriv_open_mart_search_site', 'open_mart_search_site' );
