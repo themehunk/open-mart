@@ -1919,13 +1919,14 @@ overflow-x: hidden;
 background: #fff;
 }
 
-.th-wp-auto-search.has-search-category{
-  max-width:640px!important;
+ul.th-wp-auto-search.ui-widget.ui-widget-content.has-search-category{
+  left: 298px !important;
+}  
+
+ul.th-wp-auto-search.ui-widget.ui-widget-content.no-has-search-category {
+  left: 350px !important;
 }
 
-.th-wp-auto-search.no-has-search-category{
-  max-width:560px!important;
-}
 
 /***************/
 /*Scrollbar*/
