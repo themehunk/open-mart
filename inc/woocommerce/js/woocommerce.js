@@ -221,7 +221,7 @@
             
                             var re = new RegExp(this.term, "ig") ;
                             var t = item.label.replace(re,"<span style='font-family:JosefinSans-Bold; color:#fe696a;'>" + this.term + "</span>");
-                            if($('.desktop-main-header #search-form #product_cat').length){
+                            if($('#search-form #product_cat').length){
                                 ul.addClass('has-search-category');
                             }else{
                                 ul.addClass('no-has-search-category');

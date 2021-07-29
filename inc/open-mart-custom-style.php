@@ -7,6 +7,7 @@
  * @since       Open Mart 1.0.0
  */
 function open_mart_custom_style(){
+
 $open_mart_style=""; 
 $open_mart_style.= open_mart_responsive_slider_funct( 'open_mart_logo_width', 'open_mart_logo_width_responsive');
 
@@ -436,8 +437,33 @@ $open_mart_style.="#move-to-top{background:{$open_mart_move_to_top_bg_clr};color
     .open-mart-menu ul.sub-menu{background:{$open_mart_main_header_sbmenu_bg_clr}} .open-mart-menu li ul.sub-menu li a:hover{background:{$open_mart_main_header_sbmenu_link_hvr_bg_clr}} .open-mart-menu li ul.sub-menu li a{color:{$open_mart_main_header_sbmenu_link_clr}} .open-mart-menu li ul.sub-menu li a:hover{color:{$open_mart_main_header_sbmenu_link_hvr_clr}}
     }";
 
+
+//open mart advance search layout
+   $open_mart_style .= ".th-wp-auto-search.has-search-category, .th-wp-auto-search.no-has-search-category{
+                    max-width:".open_mart_advance_header_search()." !important;}";
+
 return $open_mart_style;
 }
+
+function open_mart_advance_header_search(){
+
+    $main_header_layout = get_theme_mod('open_mart_main_header_layout','mhdrfour');
+    $catsearchdisable = get_theme_mod('open_mart_cat_search_disable', false);
+    $max_width = "620px";
+
+        if($main_header_layout=='mhdrdefault' || $main_header_layout=='mhdrone' || $main_header_layout=='mhdrtwo'  ){
+
+            $max_width = ($catsearchdisable)?"720px":"815px";
+        }elseif($main_header_layout=='mhdrthree'){
+                        $max_width = ($catsearchdisable)?"500px":"800px";
+        }       
+        return $max_width;
+      
+}
+
+
+
+
 //start logo width
 function open_mart_logo_width_responsive( $value, $dimension = 'desktop' ){
     $custom_css = '';
