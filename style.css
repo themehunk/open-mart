@@ -3818,7 +3818,7 @@ top: -47px!important;
 font-size:0;
 }
 #thunk-feature-product-tab .tab-content .thunk-compare .compare-button a{
-font-size:0;
+/*font-size:0;*/
     letter-spacing: initial;
 }
 #thunk-feature-product-tab .tab-content .thunk-compare .compare-button a:before{
