@@ -350,6 +350,7 @@ function open_mart_load_dashicons_front_end(){
   wp_enqueue_style( 'dashicons' );
 }
 
+
 /**
  * Load init.
  */
