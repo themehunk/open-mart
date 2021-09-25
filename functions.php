@@ -100,6 +100,10 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                 'name' => esc_html__( 'Woocommerce', 'open-mart' ),
                 'active_filename' => 'woocommerce/woocommerce.php',
             ),
+            'th-advance-product-search' => array(
+                'name' => esc_html__( 'Th Advance Product Search', 'open-mart' ),
+                'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
+            ),
             'th-variation-swatches' => array(
                 'name' => esc_html__( 'Th Variation Swatches', 'open-mart' ),
                 'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
