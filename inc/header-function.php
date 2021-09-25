@@ -342,9 +342,7 @@ $open_mart_top_slide_layout = get_theme_mod('open_mart_top_slide_layout','slide-
         </div>
         </nav>
        <?php }else{ 
-        if ( class_exists( 'WooCommerce' ) ){
-            open_mart_product_search_box();
-         }
+        echo open_mart_th_advance_product_search();
       }?>
       </div>
            <div class="below-header-col3">
@@ -418,9 +416,9 @@ else{
           </div>
 
            <div class="main-header-col2">
-            <?php if ( class_exists( 'WooCommerce' ) ){
-              open_mart_product_search_box();
-          } ?>
+            <?php 
+                echo open_mart_th_advance_product_search();
+                ?>
            </div>
 
            <div class="main-header-col3">
@@ -511,9 +509,7 @@ else{
         </div>
         </nav>
       <?php }else{ 
-        if ( class_exists( 'WooCommerce' ) ){
-        open_mart_product_search_box();
-       }
+        echo open_mart_th_advance_product_search();
       }?>
       </div>
 <?php if($main_header_opt!=='none'):?>
@@ -539,9 +535,9 @@ else{
           </div>
 
            <div class="main-header-col2">
-            <?php if ( class_exists( 'WooCommerce' ) ){
-              open_mart_product_search_box();
-          } ?>
+            <?php 
+            echo open_mart_th_advance_product_search();
+          ?>
            </div>
 
            <div class="main-header-col3">
@@ -894,9 +890,9 @@ add_action('open_mart_site_preloader','open_mart_preloader');
       <div class="search-wrapper">
                      <div class="container">
                       <div class="search-close"><a class="search-close-btn"></a></div>
-                     <?php  if ( class_exists( 'WooCommerce' ) ){
-                              open_mart_product_search_box();
-                          } ?>
+                     <?php  
+                        echo open_mart_th_advance_product_search();
+                          ?>
                        </div>
        </div> 
  <?php }
@@ -987,3 +983,14 @@ $open_mart_mobile_menu_open = get_theme_mod('open_mart_mobile_menu_open','left')
 <?php 
 }
 add_action( 'open_mart_main_header', 'open_cart_mobile_panel' );
+
+//th advance product search
+function open_mart_th_advance_product_search(){
+  if ( class_exists('TH_Advance_Product_Search')){
+               echo do_shortcode('[th-aps]');
+               }elseif ( !class_exists('TH_Advance_Product_Search') && is_user_logged_in()) {
+                $url = admin_url('themes.php?page=open-mart');
+                      echo '<a href="'.$url.'" target="_blank" class="plugin-active-msg">'.__('Please install th advance product search plugin','open-mart').'</a>';
+               }
+
+}

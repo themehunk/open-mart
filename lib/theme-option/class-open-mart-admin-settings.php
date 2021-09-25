@@ -555,7 +555,10 @@ if ( ! class_exists( 'Open_Mart_Admin_Settings' ) ){
                 	echo'<img src="'.esc_url(OPEN_MART_THEME_URI. 'lib/theme-option/assets/images/hunk-companion.png' ).'" />'; 
 		        $detail= '';
                 }elseif($plugin_slug=='woocommerce'){
-                	echo'<img src="'.esc_url(OPEN_MART_THEME_URI. 'lib/theme-option/assets/images/woocommerce.png' ).'" />'; 
+                	echo'<img src="'.esc_url(OPEN_MART_THEME_URI. 'lib/theme-option/assets/images/woocommerce.png' ).'" />';
+                $detail= '';
+                }elseif($plugin_slug=='th-advance-product-search'){
+        		echo'<img src="'.esc_url(OPEN_MART_THEME_URI. 'lib/theme-option/assets/images/th-advance-product-search.png' ).'" />';	 
                 $detail= '';
                 }elseif($plugin_slug=='th-variation-swatches'){
         		echo'<img src="'.esc_url(OPEN_MART_THEME_URI. 'lib/theme-option/assets/images/th-variation-swatches.png' ).'" />'; 	
