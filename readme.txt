@@ -24,6 +24,9 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
+= 1.1.9 =
+* Th advance product search plugin installation issue fixed.
+
 = 1.1.8 =
 * Th advance product search plugin added.
 
@@ -90,8 +93,8 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 1.1.8 =
-* Th advance product search plugin added.
+= 1.1.9 =
+* Th advance product search plugin installation issue fixed.
 
 == Resources ==
  
