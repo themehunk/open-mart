@@ -8266,6 +8266,27 @@ header .mobile-nav-bar.sider.left,header .mobile-nav-bar.sider.right{
   display: none;
 }
 
+/* th advance product search */
+.main-header-col2 a.plugin-active-msg, 
+.search-wrapper .container a.plugin-active-msg,
+a.plugin-active-msg{
+    background-color: #5662eb;
+    display: block;
+    font-size: 14px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    width: 60%;
+    margin-left: 20%;
+    text-align: center;
+}
+.main-header-col2 a.plugin-active-msg:hover, 
+.search-wrapper .container a.plugin-active-msg:hover,
+a.plugin-active-msg:hover{
+text-decoration: underline !important;
+}
+
+
 @media screen and (max-width: 1024px){
 header .mobile-nav-bar.sider.left,header .mobile-nav-bar.sider.right{
   display:block;
