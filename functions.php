@@ -92,48 +92,86 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 		) );
 		 // Recommend plugins
         add_theme_support( 'recommend-plugins', array(
-             'hunk-companion' => array(
-                'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
-                'active_filename' => 'hunk-companion/hunk-companion.php',
-            ),
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'open-mart' ),
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
-            'th-advance-product-search' => array(
-                'name' => esc_html__( 'Th Advance Product Search', 'open-mart' ),
-                'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
-            ),
-            'th-variation-swatches' => array(
-                'name' => esc_html__( 'Th Variation Swatches', 'open-mart' ),
-                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
-            ),
-            'woo-smart-wishlist' => array(
-                 'name' => esc_html__( 'WPC Smart Wishlist for WooCommerce', 'open-mart' ),
-                 'active_filename' => 'woo-smart-wishlist/wpc-smart-wishlist.php',
-             ),
-            'woo-smart-compare' => array(
-                 'name' => esc_html__( 'WPC Smart Compare for WooCommerce', 'open-mart' ),
-                 'active_filename' => 'woo-smart-compare/wpc-smart-compare.php',
-             ),
-            'lead-form-builder' => array(
+
+        	'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
                 'active_filename' => 'lead-form-builder/lead-form-builder.php',
             ),
             'wp-popup-builder' => array(
                 'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
                 'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
             ), 
+
+            'th-advance-product-search' => array(
+                'name' => esc_html__( 'Th Advance Product Search', 'open-mart' ),
+                 'img' => 'icon-128x128.gif',
+                'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
+            ),
+            'th-variation-swatches' => array(
+                'name' => esc_html__( 'Th Variation Swatches', 'open-mart' ),
+                 'img' => 'icon-128x128.gif',
+                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
+            ),
+
+             'hunk-companion' => array(
+                'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'hunk-companion/hunk-companion.php',
+            ),
+            'woocommerce' => array(
+                'name' => esc_html__( 'Woocommerce', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'woocommerce/woocommerce.php',
+            ),
+
+            'yith-woocommerce-wishlist' => array(
+                 'name' => esc_html__( 'YITH WooCommerce Wishlist', 'open-mart' ),
+                 'img' => 'icon-128x128.jpg',
+                 'active_filename' => 'yith-woocommerce-wishlist/init.php',
+             ),
+            'yith-woocommerce-compare' => array(
+                 'name' => esc_html__( 'YITH WooCommerce Compare', 'open-mart' ),
+                 'img' => 'icon-128x128.jpg',
+                 'active_filename' => 'yith-woocommerce-compare/init.php',
+             ),
+
+            'themehunk-megamenu-plus' => array(
+                'name' => esc_html__( 'ThemeHunk Megamenu – Menu builder', 'open-mart' ),
+                'img' => 'icon-128x128.png',
+                'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
+            ), 
+        ) );
+
+
+        // Import Data Content plugins
+        add_theme_support( 'import-demo-content', array(
+             'hunk-companion' => array(
+                'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
+                'img' => 'icon-128x128.png',
+                'active_filename' => 'hunk-companion/hunk-companion.php',
+            ),
+
             'one-click-demo-import' => array(
                 'name' => esc_html__( 'One Click Demo Import', 'open-mart' ),
+                'img' => 'icon-128x128.png',
                 'active_filename' => 'one-click-demo-import/one-click-demo-import.php',
+            ), 
+            'woocommerce' => array(
+                'name' => esc_html__( 'Woocommerce', 'open-mart' ),
+                'img' => 'icon-128x128.png',
+                'active_filename' => 'woocommerce/woocommerce.php',
             ),
-        ) );
+
+        ));
+
 
            // Useful plugins
         add_theme_support( 'useful-plugins', array(
              'themehunk-megamenu-plus' => array(
                 'name' => esc_html__( 'Megamenu plugin from Themehunk.', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
             )
         ) );
