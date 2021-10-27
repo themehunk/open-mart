@@ -66,7 +66,7 @@
                     <hr>
                     <a href="<?php echo admin_url('customize.php?autofocus[section]=site_color'); ?>" class="components-button is-link"><?php _e("Site Colors","open-mart"); ?></a>
                     <hr>
-                    <a href="<?php echo admin_url('customize.php?autofocus[section]=global_set'); ?>" class="components-button is-link"><?php _e("Global Options","open-mart"); ?></a>
+                    <a href="<?php echo admin_url('customize.php?autofocus[section]=global_set'); ?>" class="components-button is-link"><?php _e("Global Options","open-mart"); ?></a> <hr>
 
                 </div>
 
