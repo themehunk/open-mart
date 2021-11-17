@@ -11,7 +11,7 @@ add_action('admin_menu', array($this,'menu_tab'));
 }
 function menu_tab() {
     $menu_title = esc_html__('Open Mart Options', 'open-mart');
-    add_theme_page( esc_html__( 'open mart', 'open-mart' ), $menu_title, 'edit_theme_options', 'thunk_started',array($this,'tab_page'));
+    add_theme_page( esc_html__( 'Open Mart', 'open-mart' ), $menu_title, 'edit_theme_options', 'thunk_started',array($this,'tab_page'));
 
 }
 
@@ -20,11 +20,11 @@ function menu_tab() {
 * Enqueue scripts for admin page only: Theme info page
 */
 function admin_scripts( $hook ) {
-    if ($hook === 'appearance_page_thunk_started'  ) {
-    wp_enqueue_style( 'thunk-started-css', get_template_directory_uri() . '/lib/th-option/assets/css/started.css' );
-    wp_enqueue_script('open-mart-admin-load', get_template_directory_uri() . '/lib/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
+if ($hook === 'appearance_page_thunk_started'  ) {
+wp_enqueue_style( 'thunk-started-css', get_template_directory_uri() . '/lib/th-option/assets/css/started.css' );
+wp_enqueue_script('open-mart-admin-load', get_template_directory_uri() . '/lib/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
 
-    $data = apply_filters(
+$data = apply_filters(
                     'th_option_localize_vars',
                     array(
                         'oneClickDemo' =>esc_url( admin_url( 'themes.php?page=pt-one-click-demo-import' )),
@@ -33,16 +33,17 @@ function admin_scripts( $hook ) {
                 );
     wp_localize_script( 'open-mart-admin-load', 'THAdmin', $data); 
 
-    }
+
+}
 }
 function tab_constant(){
     $theme_data = wp_get_theme();
     $tab_array = array();
     $tab_array['header'] = array('theme_brand' => __('ThemeHunk','open-mart'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
-    'welcome'=>sprintf(esc_html__('Welcome To %1s Woocommerce Theme', 'open-mart'), esc_html__($theme_data->get( 'Name' ))),
+    'welcome'=>sprintf(esc_html__('Welcome To %1s Theme', 'open-mart'), esc_html__($theme_data->get( 'Name' )), $theme_data->get( 'Version' ) ),
     'welcome_desc' => esc_html__($theme_data->get( 'Name' ).' is a fully Versatile eCommerce WordPress theme.', 'open-mart' ),
-    'v'=> 'Version '.$theme_data->get( 'Version' ),
+    'v'=> 'Version '.$theme_data->get( 'Version' )
     );
     return $tab_array;
 }
@@ -132,9 +133,9 @@ function _check_homepage_setup(){
 
         }
 		
-		
-	
-	function plugin_install_button($plugin){
+
+
+function plugin_install_button($plugin){
             $button = '<div class="rcp theme_link th-row">';
             $button .= ' <div class="th-column"><img src="'.esc_url( $plugin['thumb'] ).'" /> </div>';
             $button .= '<div class="th-column">';
@@ -146,14 +147,16 @@ function _check_homepage_setup(){
             $button .= '</div></div>';
 
             echo $button;
-}	
-		
-  
-  
+}
+
+
+
+
 /**
  * Include Welcome page content
  */
  public  function plugin_install($rplugins = 'recommend-plugins'){
+
     $recommend_plugins = get_theme_support( $rplugins );
 
        if ( is_array( $recommend_plugins ) && isset( $recommend_plugins[0] ) ){
@@ -221,7 +224,6 @@ function _check_homepage_setup(){
     } // plugin check
 }
 
-
- 
+	
 } // class end
-$boj = new open_mart_theme_option();
+$boj = new open_mart_theme_option(); ?>

@@ -90,10 +90,28 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
 
 		) );
-		 // Recommend plugins
+
+
+		// Recommend plugins
         add_theme_support( 'recommend-plugins', array(
 
-        	'lead-form-builder' => array(
+            'hunk-companion' => array(
+                'name' => esc_html__( 'Hunk Companion (Highly Recommended)', 'open-mart' ),
+                'img' => 'icon-128x128.png',
+                'active_filename' => 'hunk-companion/hunk-companion.php',
+            ),
+
+            'th-advance-product-search' => array(
+            'name' => esc_html__( 'TH Advance Product Search', 'open-mart' ),
+            'img' => 'icon-128x128.gif',
+            'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
+            ),
+            'th-variation-swatches' => array(
+                'name' => esc_html__( 'TH Variation Swatches', 'open-mart' ),
+                 'img' => 'icon-128x128.gif',
+                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
+            ),
+            'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'lead-form-builder/lead-form-builder.php',
@@ -103,23 +121,6 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
             ), 
-
-            'th-advance-product-search' => array(
-                'name' => esc_html__( 'Th Advance Product Search', 'open-mart' ),
-                 'img' => 'icon-128x128.gif',
-                'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
-            ),
-            'th-variation-swatches' => array(
-                'name' => esc_html__( 'Th Variation Swatches', 'open-mart' ),
-                 'img' => 'icon-128x128.gif',
-                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
-            ),
-
-             'hunk-companion' => array(
-                'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
-                 'img' => 'icon-128x128.png',
-                'active_filename' => 'hunk-companion/hunk-companion.php',
-            ),
             'woocommerce' => array(
                 'name' => esc_html__( 'Woocommerce', 'open-mart' ),
                  'img' => 'icon-128x128.png',
@@ -128,12 +129,12 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
             'yith-woocommerce-wishlist' => array(
                  'name' => esc_html__( 'YITH WooCommerce Wishlist', 'open-mart' ),
-                 'img' => 'icon-128x128.jpg',
+                  'img' => 'icon-128x128.jpg',
                  'active_filename' => 'yith-woocommerce-wishlist/init.php',
              ),
             'yith-woocommerce-compare' => array(
                  'name' => esc_html__( 'YITH WooCommerce Compare', 'open-mart' ),
-                 'img' => 'icon-128x128.jpg',
+                  'img' => 'icon-128x128.jpg',
                  'active_filename' => 'yith-woocommerce-compare/init.php',
              ),
 
@@ -142,11 +143,13 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                 'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
             ), 
-        ) );
+            
 
+        ) );
 
         // Import Data Content plugins
         add_theme_support( 'import-demo-content', array(
+
              'hunk-companion' => array(
                 'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
                 'img' => 'icon-128x128.png',
@@ -167,14 +170,16 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
         ));
 
 
-           // Useful plugins
+
+        // Useful plugins
         add_theme_support( 'useful-plugins', array(
              'themehunk-megamenu-plus' => array(
                 'name' => esc_html__( 'Megamenu plugin from Themehunk.', 'open-mart' ),
-                 'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
-            )
+            ),
         ) );
+
+		
 		// Add support for Custom Background.
         if(get_theme_mod('open_mart_color_scheme')=='opn-dark'){
         $args = array(

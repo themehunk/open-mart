@@ -15,6 +15,7 @@ get_template_part( 'lib/breadcrumbs/breadcrumbs');
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 if ( !is_plugin_active('open-mart-pro/open-mart-pro.php') ) {
     get_template_part( '/lib/th-option/th-option');
+	get_template_part( '/lib/th-option/child-notify');
 }
 //page-post-meta
 get_template_part( 'lib/page-meta-box/open-page-meta-box');
