@@ -98,20 +98,22 @@
         product_slide_margin_padding : function () {
             $(document).ready(function(){ 
               $(".thunk-product").hover(function() { 
-                $('.thunk-slide .owl-stage-outer,.thunk-slide-widget .owl-stage-outer').css("margin", "-6px -6px -120px"); 
-                $('.thunk-slide .owl-stage-outer,.thunk-slide-widget .owl-stage-outer').css("padding", "6px 6px 120px");
-                $('.thunk-slide .owl-nav').css("top", "-47px");
-                $('.thunk-vertical-cat-tab .thunk-slide .owl-nav').css("top", "33.5%");
-                $('#thunk-feature-product-tab .thunk-slide .owl-nav').css("top", "-40px");
-                $('.product-slide-widget .thunk-slide-widget .owl-nav').css("top", "45%");
+                let outerStage = $(this).closest('.owl-stage-outer'); 
+                outerStage.css("margin", "-6px -6px -120px"); 
+                outerStage.css("padding", "6px 6px 120px");
+                $(this).closest('.owl-carousel').find('.owl-nav').css("top", "-47px");
+                // $('.thunk-vertical-cat-tab .thunk-slide .owl-nav').css("top", "33.5%");
+                // $('#thunk-feature-product-tab .thunk-slide .owl-nav').css("top", "-40px");
+                // $('.product-slide-widget .thunk-slide-widget .owl-nav').css("top", "45%");
 
-              }, function() { 
-                $('.thunk-slide .owl-stage-outer,.thunk-slide-widget .owl-stage-outer').css("margin", "0"); 
-                $('.thunk-slide .owl-stage-outer,.thunk-slide-widget .owl-stage-outer').css("padding", "0"); 
-                $('.thunk-slide .owl-nav').css("top", "-47px");
-                $('.thunk-vertical-cat-tab .thunk-slide .owl-nav').css("top", "45%");  
-                $('#thunk-feature-product-tab .thunk-slide .owl-nav').css("top", "-40px");
-                $('.product-slide-widget .thunk-slide-widget .owl-nav').css("top", "45%"); 
+              }, function() {
+              let outerStage = $(this).closest('.owl-stage-outer');  
+                outerStage.css("margin", "0"); 
+                outerStage.css("padding", "0"); 
+                $(this).closest('.owl-carousel').find('.owl-nav').css("top", "-47px");
+                // $('.thunk-vertical-cat-tab .thunk-slide .owl-nav').css("top", "45%");  
+                // $('#thunk-feature-product-tab .thunk-slide .owl-nav').css("top", "-40px");
+                // $('.product-slide-widget .thunk-slide-widget .owl-nav').css("top", "45%"); 
              }); 
           });
 
