@@ -26,6 +26,10 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 = 1.2.3 =
 * Product Hover Effect optimised in JS.
 
+= 1.2.3 =
+* Th product compare plugin added.
+* Th advance product search pro plugin issue fixed.
+
 = 1.2.2 =
 * product dropdown child category issue fixed.
 

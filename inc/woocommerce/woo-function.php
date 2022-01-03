@@ -225,6 +225,7 @@ add_action( 'woocommerce_after_shop_loop', 'open_mart_shop_content_end',1);
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open');
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+remove_action('woocommerce_init','th_compare_add_action_shop_list');
 
 //To integrate with a theme, please use bellow filters to hide the default buttons. hide default wishlist button on product archive page
 add_filter( 'woosw_button_position_archive', function() {
@@ -280,7 +281,7 @@ if ( ! function_exists('open_mart_whish_list_both')){
 
 if ( ! function_exists('open_mart_add_to_compare_fltr_both')){
 function open_mart_add_to_compare_fltr_both($pid){
-  if( ( class_exists( 'YITH_Woocompare' ))){
+  if( ( class_exists( 'th_product_compare' ))){
              open_mart_add_to_compare_fltr($pid);      
                 }
                   elseif( ( class_exists( 'WPCleverWoosc' ))){
@@ -293,28 +294,36 @@ function open_mart_add_to_compare_fltr_both($pid){
 
 
 
-/****************/
-// add to compare
-/****************/
+/************************/
+// Th Product Compare
+/************************/
 
 function open_mart_add_to_compare_fltr_single($pid){
-        if( is_plugin_active('yith-woocommerce-compare/init.php') ){
-          echo '<div class="thunk-compare"><span class="compare-list"><div class="woocommerce product compare-button"><a href="'.esc_url(home_url()).'?action=yith-woocompare-add-product&id='.esc_attr($pid).'" class="compare button" data-product_id="'.esc_attr($pid).'" rel="nofollow"></a></div></span></div>';
+        if(class_exists(('th_product_compare') )){
+    global $product;
+    $pid = $product->get_id();
+    echo '<div class="thunk-compare"><span class="compare-list"><div class="woocommerce product compare-button">
+          <a class="th-product-compare-btn compare" data-th-product-id="'.$pid.'"></a>
+          </div></span></div>';
 
            }
            
-
 }
 
 
 function open_mart_add_to_compare_fltr($pid){
-        if( is_plugin_active('yith-woocommerce-compare/init.php') ){
-          echo '<div class="thunk-compare"><span class="compare-list"><div class="woocommerce product compare-button"><a href="'.esc_url(home_url()).'?action=yith-woocompare-add-product&id='.esc_attr($pid).'" class="compare button" data-product_id="'.esc_attr($pid).'" rel="nofollow"></a></div></span></div>';
+      if(class_exists(('th_product_compare') )){
+    global $product;
+    $pid = $product->get_id();
+    echo '<div class="thunk-compare"><span class="compare-list"><div class="woocommerce product compare-button">
+          <a class="th-product-compare-btn compare" data-th-product-id="'.$pid.'"></a>
+          </div></span></div>';
 
-           }
-           elseif( ( class_exists( 'WPCleverWoosc' ))){
+           }elseif( ( class_exists( 'WPCleverWoosc' ))){
            echo '<div class="thunk-compare">'.do_shortcode('[woosc id='.$pid.']').'</div>';
          }
+
+        
 }
 /**********************/
 /** wishlist **/

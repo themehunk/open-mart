@@ -106,6 +106,11 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
             'img' => 'icon-128x128.gif',
             'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
             ),
+            'th-product-compare' => array(
+                 'name' => esc_html__( 'Th Product Compare', 'open-mart' ),
+                  'img' => 'icon-128x128.png',
+                 'active_filename' => 'th-product-compare/th-product-compare.php',
+             ),
             'th-variation-swatches' => array(
                 'name' => esc_html__( 'TH Variation Swatches', 'open-mart' ),
                  'img' => 'icon-128x128.gif',
@@ -131,11 +136,6 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                  'name' => esc_html__( 'YITH WooCommerce Wishlist', 'open-mart' ),
                   'img' => 'icon-128x128.jpg',
                  'active_filename' => 'yith-woocommerce-wishlist/init.php',
-             ),
-            'yith-woocommerce-compare' => array(
-                 'name' => esc_html__( 'YITH WooCommerce Compare', 'open-mart' ),
-                  'img' => 'icon-128x128.jpg',
-                 'active_filename' => 'yith-woocommerce-compare/init.php',
              ),
 
             'themehunk-megamenu-plus' => array(
