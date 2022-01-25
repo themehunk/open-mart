@@ -356,20 +356,17 @@ $open_mart_top_slide_layout = get_theme_mod('open_mart_top_slide_layout','slide-
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== true):
                           
                       ?>
-                      <div class="cart-icon" > 
+                      
                          <?php 
-                         do_action( 'open_cart_count' );
-                         do_action( 'open_mart_woo_cart' ); 
+                         open_mart_th_cart();
                          ?>
-                       </div>
+                      
                       <?php  endif; }
                       elseif(get_theme_mod('open_mart_cart_mobile_disable')==false){?>
-                           <div class="cart-icon" > 
-                            <?php 
-                               do_action( 'open_cart_count' );
-                               do_action( 'open_mart_woo_cart' ); 
-                               ?>
-                          </div>
+                           
+                         <?php 
+                         open_mart_th_cart();
+                         ?>
                      <?php  } } ?>  
                   </div>      
             </div>
@@ -433,7 +430,7 @@ else{
             </button>
         </div>
             <?php open_mart_header_icon_second(); ?> 
-            <div class="cart-icon">
+            
          <?php if(class_exists( 'WooCommerce' )){ 
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') == true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') == true 
@@ -441,22 +438,18 @@ else{
           if(get_theme_mod('open_mart_cart_mobile_disable') == false){
                           
                       ?>
-                      <div class="cart-icon" > 
+                      
                          <?php 
-                         do_action( 'open_cart_count' );
-                         do_action( 'open_mart_woo_cart' ); 
+                         open_mart_th_cart();
                          ?>
-                       </div>
                       <?php  } }
                       else{?>
-                           <div class="cart-icon" > 
-                            <?php 
-                               do_action( 'open_cart_count' );
-                               do_action( 'open_mart_woo_cart' ); 
-                               ?>
-                          </div>
+                           
+                         <?php 
+                         open_mart_th_cart();
+                         ?>
                      <?php  } } ?>
-             </div>
+             
           </div>
         </div>
        <?php  } 
@@ -552,7 +545,7 @@ else{
             </button>
         </div>
             <?php open_mart_header_icon_second(); ?> 
-            <div class="cart-icon">
+            
          <?php if(class_exists( 'WooCommerce' )){ 
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') == true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') == true 
@@ -560,22 +553,18 @@ else{
           if(get_theme_mod('open_mart_cart_mobile_disable') == false){
                           
                       ?>
-                      <div class="cart-icon" > 
+                      
                          <?php 
-                         do_action( 'open_cart_count' );
-                         do_action( 'open_mart_woo_cart' ); 
+                         open_mart_th_cart();
                          ?>
-                       </div>
                       <?php  } }
                       else{?>
-                           <div class="cart-icon" > 
-                            <?php 
-                               do_action( 'open_cart_count' );
-                               do_action( 'open_mart_woo_cart' ); 
-                               ?>
-                          </div>
+                           
+                         <?php 
+                         open_mart_th_cart();
+                         ?>
                      <?php  } } ?>
-             </div>
+             
           </div>
         </div>
             </div>
@@ -874,12 +863,11 @@ add_action('open_mart_site_preloader','open_mart_preloader');
                        ?>
                 </div>
              <?php if(class_exists( 'WooCommerce' )){ ?>
-                      <div class="cart-icon" > 
+                      
                          <?php 
-                         do_action( 'open_cart_count' );
-                         do_action( 'open_mart_woo_cart' ); 
+                         open_mart_th_cart();
                          ?>
-                       </div>
+
                       <?php  } ?> 
                   </div>
            </div>
@@ -927,10 +915,7 @@ function openmart_mobile_navbar(){?>
  
        </li>
     <li><?php open_mart_account();?></li>
-    <li><?php 
-           do_action( 'open_cart_count' ); 
-        ?> 
-    </li>
+    
     
   </ul>
 </div>
@@ -984,17 +969,65 @@ $open_mart_mobile_menu_open = get_theme_mod('open_mart_mobile_menu_open','left')
 }
 add_action( 'open_mart_main_header', 'open_cart_mobile_panel' );
 
-//********************************
+//********************************//
 //th advance product search 
-//*******************************
+//*******************************//
 function open_mart_th_advance_product_search(){
-  if ( shortcode_exists('th-aps') ){
+
+              if ( shortcode_exists('th-aps') ){
+
                 echo do_shortcode('[th-aps]');
+
               } elseif ( !shortcode_exists('th-aps') && is_user_logged_in()) {
-                $url = admin_url('themes.php?page=thunk_started&searchp'); 
+
+                $url = admin_url('themes.php?page=thunk_started&th-tab=recommended-plugin');
+
                 $pro_url =admin_url('plugin-install.php?s=th%20advance%20product%20search&tab=search&type=term');
+
                 $url = (function_exists("open_mart_load_plugin"))?$pro_url:$url;
 
-                      echo '<a href="'.$url.'" target="_blank" class="plugin-active-msg">'.__('Please Install "th advance product search" Plugin','open-mart').'</a>';
-                    }
+                ?>
+
+                <a target="_blank" class="plugin-active-msg" href="<?php echo esc_url($url);?>">
+
+                  <?php _e('Please Install "th advance product search" Plugin','open-mart');?>
+                  
+                </a>
+
+
+                <?php      
+
+            }
+}
+
+//********************************//
+//th woo cart 
+//*******************************//
+
+function open_mart_th_cart(){
+
+  if ( shortcode_exists('taiowc') ){
+
+                echo do_shortcode('[taiowc]');
+
+                } elseif ( !shortcode_exists('taiowc') && is_user_logged_in()) {
+
+                $url = admin_url('themes.php?page=thunk_started&th-tab=recommended-plugin');
+
+                $pro_url =admin_url('plugin-install.php?s=th%20all%20in%20one%20woo%20cart&tab=search&type=term');
+
+                $url = (function_exists("open_mart_load_plugin"))?$pro_url:$url;
+
+                ?>
+
+                <a target="_blank" class="cart-plugin-active-msg" href="<?php echo esc_url($url);?>">
+
+                  <?php _e('Add Cart','open-mart');?>
+                  
+                </a>
+
+
+                <?php      
+
+            }
 }
