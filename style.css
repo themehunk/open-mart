@@ -4,7 +4,7 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.2.3
+Version: 1.2.4
 Requires at least: 4.5
 Tested up to: 5.8.1
 Requires PHP: 5.6
@@ -4502,7 +4502,21 @@ line-height: normal;
 }
 .woocommerce div.product .product_title,section.related.products h2,
  section.upsells.products h2,.woocommerce #reviews #comments h2{color:#333;}
+.woocommerce #content div.product div.summary .th-product-compare-btn:before{
+content: "\f074";
+font-family: 'fontawesome';
+margin-right: 0;
+font-size:13px;
+margin-left: 7px;
+}
+.woocommerce #content div.product div.summary .th-product-compare-btn.th-added-compare{
+color:#ff0052;
+}
 
+.woocommerce #content div.product div.summary .th-product-compare-btn.loading:after {
+    left: 18%;
+    top: 16%!important;
+  }
 /*quantity button*/
 .single-product div.product form.cart button.minus { 
 display: inline-block;
@@ -6461,6 +6475,7 @@ background:transparent;
     transform: translateY(-100%);
     -webkit-animation: none;
     animation: none;
+        padding: 0.8rem 0;
    
 }
 .search-wrapper{
@@ -9203,8 +9218,18 @@ width:50%;
   max-width:300px!important;
 }
 
+header .taiowc-content .taiowc-total{
+  display: none;
+}
+header .taiowc-cart-item {
+    padding: 0.2rem;
+  }
+
 }
 @media screen and (max-width: 767px){
+  header .taiowc-wrap{
+    display: none;
+  }
   .main-header-col1{
     width: 50%!important;
     order: 1;

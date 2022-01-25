@@ -188,18 +188,24 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 					$classes[] = 'open-shadow-' . esc_attr($shadow_style);
 				}	
 			}
+			
 			if (is_shop() || is_product_taxonomy() || post_type_exists( 'product' )){
 			$shadow_hvr_style = get_theme_mod( 'open_mart_product_box_shadow_on_hover' );
 				if ( '' !== $shadow_hvr_style ){
 					$classes[] = 'open-shadow-hover-' . esc_attr($shadow_hvr_style);
 				}	
 			}
+
 			if ( 'swap' === $hover_style && (!is_admin()) && !open_mart_is_blog()){
             global $product;
 			$attachment_ids = $product->get_gallery_image_ids();
 			if(count($attachment_ids) > '0'){
                 $classes[] ='open-mart-swap-item-hover';
 			  }
+
+			if(class_exists('Taiowc_Pro')){
+                $classes[] ='taiowc-fly-cart';
+			}  
 			
 
 		    }
