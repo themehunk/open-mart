@@ -13,68 +13,6 @@ if ( ! function_exists( 'is_plugin_active' ) ){
          require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
-/*******************************/
-/** Sidebar Add Cart Product **/
-/*******************************/
-if ( ! function_exists( 'open_mart_cart_total_item' ) ){
-  /**
-   * Cart Link
-   * Displayed a link to the cart including the number of items present and the cart total
-   */
- function open_mart_cart_total_item(){
-   global $woocommerce; 
- ?>
- <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart','open-mart' ); ?>"><div class="cart-icon-wrap"><i class="fa fa-shopping-basket"></i></div><span class="cart-content"><?php echo sprintf ( _n( '<span class="count-item">%d </span>', '<span class="count-item">%d</span>', WC()->cart->get_cart_contents_count(),'open-mart' ), WC()->cart->get_cart_contents_count(),'open-mart' ); ?><?php echo WC()->cart->get_cart_total(); ?></span></a>
-  <?php }
-}
-//cart view function
-function open_mart_menu_cart_view($cart_view){
-    global $woocommerce;
-    $cart_view= open_mart_cart_total_item();
-    return $cart_view;
-}
-add_action( 'open_cart_count','open_mart_menu_cart_view');
-
-function open_mart_woo_cart_product(){
-global $woocommerce;
-?>
-<div class="cart-overlay"></div>
-<div id="open-cart" class="open-cart">
-<div class="cart-widget-heading">
-  <h4><?php _e('Shopping Cart','open-mart');?></h4>
-  <a class="cart-close-btn"><?php _e('close','open-mart');?></a></div>  
-<div class="open-quickcart-dropdown">
-<?php 
-woocommerce_mini_cart(); 
-?>
-</div>
-<?php if ($woocommerce->cart->is_empty() ) : ?>
-<a class="button return wc-backward" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"> <?php _e( 'Return to shop', 'open-mart' ) ?> </a>
-<?php endif;?>
-</div>
-    <?php
-}
-add_action( 'open_mart_woo_cart', 'open_mart_woo_cart_product' );
-add_filter('woocommerce_add_to_cart_fragments', 'open_mart_add_to_cart_dropdown_fragment');
-function open_mart_add_to_cart_dropdown_fragment( $fragments ){
-   global $woocommerce;
-   ob_start();
-   ?>
-   <div class="open-quickcart-dropdown">
-       <?php woocommerce_mini_cart(); ?>
-   </div>
- <?php $fragments['div.open-quickcart-dropdown'] = ob_get_clean();
-   return $fragments;
-}
-add_filter('woocommerce_add_to_cart_fragments', 'open_mart_add_to_cart_fragment');
-function open_mart_add_to_cart_fragment($fragments){
-        ob_start();?>
-        <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart','open-mart' ); ?>"><div class="cart-icon-wrap"><i class="fa fa-shopping-basket"></i></div><span class="cart-content"><?php echo sprintf ( _n( '<span class="count-item">%d</span>', '<span class="count-item">%d</span>', WC()->cart->get_cart_contents_count(),'open-mart' ), WC()->cart->get_cart_contents_count(),'open-mart' ); ?><?php echo WC()->cart->get_cart_total(); ?></span></a>
-
-       <?php  $fragments['a.cart-contents'] = ob_get_clean();
-
-        return $fragments;
-    }
 /***********************************************/
 //Sort section Woocommerce category filter show
 /***********************************************/
