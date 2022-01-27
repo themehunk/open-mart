@@ -36,6 +36,9 @@ get_template_part('customizer/sortable/class-open-control-sortable');
 get_template_part('customizer/background/class-open-mart-background-image-control');
 get_template_part('customizer/customizer-tabs/class-open-mart-customize-control-tabs');
 get_template_part('customizer/customizer-toggle/class-open-mart-toggle-control');
+if ( !is_plugin_active( 'open-mart-pro/open-mart-pro.php' ) ) { 
+get_template_part('customizer/pro-button/class-customize');
+}
 
 get_template_part('customizer/custom-customizer');
 get_template_part('customizer/customizer-constant');

@@ -21,7 +21,6 @@ require OPEN_MART_THEME_DIR . '/customizer/section/layout/header/loader.php';
 //Footer
 require OPEN_MART_THEME_DIR . '/customizer/section/layout/footer/above-footer.php';
 require OPEN_MART_THEME_DIR . '/customizer/section/layout/footer/widget-footer.php';
-require OPEN_MART_THEME_DIR . '/customizer/section/layout/footer/bottom-footer.php';
 //section ordering
 require OPEN_MART_THEME_DIR . '/customizer/section-ordering.php';
 //social Icon
