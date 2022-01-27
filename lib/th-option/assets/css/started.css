@@ -1,7 +1,6 @@
 
 /*************************************/
 /***** Started theme css **/
-
 .wrap-th {
     margin: 10px 20px 0 2px;
 }
@@ -497,4 +496,8 @@ display: flex;
     width: 18%;
    padding: 1%;
 }
+}
+
+.notice.notice-success.is-dismissible.th-theme-notice {
+    display: none;
 }
