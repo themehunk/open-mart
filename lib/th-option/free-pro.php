@@ -262,7 +262,7 @@
                         </div>
                      </td>
                      <td class="status upsell"><?php _e('Access to all Pro features','open-mart'); ?> </td>
-                     <td class="status success"><a href="https://themehunk.com/product/open-mart/" target="_blank" rel="external noreferrer noopener" class="components-button is-primary"><?php _e('Get Open Mart Pro Now','open-mart'); ?></a></td>
+                     <td class="status success"><a href="<?php echo esc_url('https://themehunk.com/product/open-mart/'); ?>" target="_blank" rel="external noreferrer noopener" class="components-button is-primary"><?php _e('Get Open Mart Pro Now','open-mart'); ?></a></td>
                   </tr>
 
 

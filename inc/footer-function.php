@@ -357,43 +357,6 @@ $open_mart_bottom_footer_widget_layout  = get_theme_mod( 'open_mart_bottom_foote
 <?php }
 }
 add_action( 'open_mart_widget_footer', 'open_mart_widget_footer_markup' );
-/**************************************/
-//Below footer function
-/**************************************/
-if ( ! function_exists( 'open_mart_below_footer_markup' ) ){  
-function open_mart_below_footer_markup(){ ?>  
-<?php 
-$open_mart_bottom_footer_layout  = get_theme_mod( 'open_mart_bottom_footer_layout','ft-btm-one');
-$open_mart_bottom_footer_col1_set= get_theme_mod( 'open_mart_bottom_footer_col1_set','text');
-$open_mart_bottom_footer_col2_set= get_theme_mod( 'open_mart_bottom_footer_col2_set','text');
-$open_mart_bottom_footer_col3_set= get_theme_mod( 'open_mart_bottom_footer_col3_set','text');
-?>		
-<div class="below-footer">
-			<div class="container">
-				 <?php if($open_mart_bottom_footer_layout=='ft-btm-one'):?>  
-				<div class="below-footer-bar thnk-col-1">
-					<div class="below-footer-col1"> 
-						<?php open_mart_bottom_footer_conetnt_col1($open_mart_bottom_footer_col1_set); ?>
-						</div>
-                </div>
-                 <?php elseif($open_mart_bottom_footer_layout=='ft-btm-two'):?>
-                  <div class="below-footer-bar thnk-col-2">
-                   	<div class="below-footer-col1"> <?php open_mart_bottom_footer_conetnt_col1($open_mart_bottom_footer_col1_set); ?></div>
-					<div class="below-footer-col2"> <?php open_mart_bottom_footer_conetnt_col2($open_mart_bottom_footer_col2_set); ?></div>
-				</div>
-				<?php elseif($open_mart_bottom_footer_layout=='ft-btm-three'):?>
-				<div class="below-footer-bar thnk-col-3">
-                   	<div class="below-footer-col1"> <?php open_mart_bottom_footer_conetnt_col1($open_mart_bottom_footer_col1_set); ?></div>
-					<div class="below-footer-col2"> <?php open_mart_bottom_footer_conetnt_col2($open_mart_bottom_footer_col2_set); ?></div>
-					<div class="below-footer-col3"> <?php open_mart_bottom_footer_conetnt_col3($open_mart_bottom_footer_col3_set); ?></div>
-				</div>
-			<?php endif; ?>
-				
-			</div>
-		</div>  
-<?php }
-}
-add_action( 'open_mart_below_footer', 'open_mart_below_footer_markup' );
 /**********************/
 // footer function
 /************************/
@@ -497,105 +460,37 @@ return false;
 }?>
 <?php }
 }
-//************************************/
-// Footer bottom col1 function
-//************************************/
-if ( ! function_exists( 'open_mart_bottom_footer_conetnt_col1' ) ){ 
-function open_mart_bottom_footer_conetnt_col1($content){ ?>
-<?php if($content=='text'){?>
-<div class='content-html'>
-  <?php echo esc_html(get_theme_mod('open_mart_footer_bottom_col1_texthtml','Copyright | Open Mart | Developed by ThemeHunk'));?>
+
+
+/**************************************/
+//Below footer function
+/**************************************/
+if ( ! function_exists( 'open_mart_below_footer_markup_lite' ) ){  
+function open_mart_below_footer_markup_lite(){ ?>   
+<div class="below-footer">
+      <div class="container">
+        <div class="below-footer-bar thnk-col-1">
+          <div class="below-footer-col1"> 
+           <p class="footer-copyright">&copy;
+              <?php
+              echo date_i18n(
+                /* translators: Copyright date format, see https://www.php.net/date */
+                _x( 'Y', 'copyright date format', 'open-mart' )
+              );
+              ?>
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+              <span class="powered-by-wordpress">
+              <span><?php _e( 'Designed by', 'open-mart' ); ?></span>
+              <a href="<?php echo esc_url( __( 'https://themehunk.com/', 'open-mart' ) ); ?>" target="_blank">
+                <?php _e( 'Themehunk', 'open-mart' ); ?>
+              </a>
+            </span>
+            </p><!-- .footer-copyright -->
+           </div>
+        </div>
+      </div>
 </div>
-<?php }elseif($content=='menu'){
-  if ( has_nav_menu('open-mart-footer-menu' ) ) {?>
-<?php 
-  open_mart_footer_nav_menu();
- }else{?>
-<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign footer menu', 'open-mart' );?></a>
- <?php }
-}
-elseif($content=='widget'){?>
-  <div class="content-widget">
-    <?php if( is_active_sidebar('footer-below-first' ) ){
-    dynamic_sidebar('footer-below-first' );
-     } else { ?>
-      <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'open-mart' );?></a>
-     <?php }?>
-     </div>
-<?php }elseif($content=='social'){?>
-<div class="content-social">
-<?php echo open_mart_social_links();?>
-</div>
-<?php }elseif($content=='none'){
-return false;
-}?>
+                  
 <?php }
 }
-//************************************/
-// Footer bottom col2 function
-//************************************/
-if ( ! function_exists( 'open_mart_bottom_footer_conetnt_col2' ) ){ 
-function open_mart_bottom_footer_conetnt_col2($content){ ?>
-<?php if($content=='text'){?>
-<div class='content-html'>
-  <?php echo esc_html(get_theme_mod('open_mart_footer_bottom_col2_texthtml',  __( 'Add your content here', 'open-mart' )));?>
-</div>
-<?php }elseif($content=='menu'){
-  if ( has_nav_menu('open-mart-footer-menu' ) ) {?>
-<?php 
-  open_mart_footer_nav_menu();
- }else{?>
-<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign footer menu', 'open-mart' );?></a>
- <?php }
-}
-elseif($content=='widget'){?>
-  <div class="content-widget">
-    <?php if( is_active_sidebar('footer-below-second')){
-    dynamic_sidebar('footer-below-second');
-          }else{ ?>
-      <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'open-mart' );?></a>
-        <?php } ?>
-  </div>
-<?php }elseif($content=='social'){?>
-<div class="content-social">
-<?php echo open_mart_social_links();?>
-</div>
-<?php }elseif($content=='none'){
-return false;
-}?>
-<?php }
-}
-//************************************/
-// Footer bottom col3 function
-//************************************/
-if ( ! function_exists( 'open_mart_bottom_footer_conetnt_col3' ) ){ 
-function open_mart_bottom_footer_conetnt_col3($content){ ?>
-<?php if($content=='text'){?>
-<div class='content-html'>
-  <?php echo esc_html(get_theme_mod('open_mart_bottom_footer_col3_texthtml',  __( 'Add your content here', 'open-mart' )));?>
-</div>
-<?php }elseif($content=='menu'){
-  if ( has_nav_menu('open-mart-footer-menu' ) ) {?>
-<?php 
-  open_mart_footer_nav_menu();
- }else{?>
-<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign footer menu', 'open-mart' );?></a>
- <?php }
-}
-elseif($content=='widget'){?>
-  <div class="content-widget">
-    <?php if( is_active_sidebar('footer-below-third')){
-    dynamic_sidebar('footer-below-third');
-          }else{ ?>
-      <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'open-mart' );?></a>
-        <?php } ?>
-  </div>
-<?php }elseif($content=='social'){?>
-<div class="content-social">
-<?php echo open_mart_social_links();?>
-</div>
-<?php }elseif($content=='none'){
-return false;
-}?>
-<?php }
-}
+add_action( 'open_mart_default_bottom_footer', 'open_mart_below_footer_markup_lite' );

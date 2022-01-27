@@ -101,3 +101,18 @@ $wp_customize->add_control(new open_mart_Misc_Control( $wp_customize, 'open_mart
         'description' => esc_html__( 'To know more go with this', 'open-mart' ),
         'priority'   =>100,
     )));
+
+if ( !is_plugin_active( 'open-mart-pro/open-mart-pro.php' ) ) {
+
+    $wp_customize->add_setting('open-mart-pro-link', array(
+    'sanitize_callback' => 'open_mart_sanitize_text',
+    ));
+$wp_customize->add_control(new open_mart_Misc_Control( $wp_customize, 'open-mart-pro-link',
+            array(
+        'section'     => 'open-mart-bottom-footer',
+        'type'        => 'pro-link',
+        'url'         => 'https://themehunk.com/product/open-mart/',
+        'label' => esc_html__( 'Get Pro', 'open-mart' ),
+        'priority'   =>100,
+    )));
+}

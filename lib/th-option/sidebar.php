@@ -5,7 +5,7 @@
             </h3>
             <p>
             <?php _e('If you like the free version of this theme, you will LOVE the full version of Open Mart which includes numerous  Advanced features, Custom Sections, Section Ordering and more useful options to customize your website.','open-mart'); ?></p>
-                <center><a class="button ztabtn" target="_blank" href="https://themehunk.com/product/open-mart/"><?php _e('Upgrade To Open Mart Premium','open-mart'); ?> </a></center>
+                <center><a class="button ztabtn" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/open-mart/') ?>"><?php _e('Upgrade To Open Mart Premium','open-mart'); ?> </a></center>
             </div>
             <hr>
             <div class="section">
@@ -19,13 +19,13 @@
             <div class="section">
                 <h3><?php _e('Video Tutorials','open-mart'); ?></h3>
                 <p><?php _e('Want a guide? We have video tutorials to walk you through getting started.','open-mart'); ?> </p>
-                <a href="https://www.youtube.com/watch?v=yeGKgijByvk&list=PLe42R8TvpeK3gniG8eNP4zYuKHzBdcame" target="_blank" class="sidebar-link"><?php _e('Watch Videos','open-mart'); ?></a>
+                <a href="<?php echo esc_url('https://www.youtube.com/watch?v=yeGKgijByvk&list=PLe42R8TvpeK3gniG8eNP4zYuKHzBdcame'); ?>" target="_blank" class="sidebar-link"><?php _e('Watch Videos','open-mart'); ?></a>
             </div>
             <hr>
 
             <div class="section">
                 <h3><?php _e('Support','open-mart'); ?> </h3>
                 <p><?php _e('Have a question, we are happy to help! Get in touch with our support team.','open-mart'); ?></p>
-                <a href="https://themehunk.com/contact-us/" target="_blank" class="sidebar-link"><?php _e('Submit a Ticket','open-mart'); ?></a>
+                <a href="<?php echo esc_url('https://themehunk.com/contact-us/'); ?>" target="_blank" class="sidebar-link"><?php _e('Submit a Ticket','open-mart'); ?></a>
             </div>
         </div>

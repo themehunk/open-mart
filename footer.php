@@ -15,7 +15,12 @@
           // widget-footer
 		      do_action( 'open_mart_widget_footer' );
 		      // below-footer
-          do_action( 'open_mart_below_footer' );  
+          if (function_exists( 'open_mart_load_plugin' ) ){
+             do_action( 'open_mart_pro_below_footer' );  
+          }
+          else{
+            do_action( 'open_mart_default_bottom_footer' );  
+          }
         ?>
      </footer> <!-- end footer -->
     </div> <!-- end openmart-site -->

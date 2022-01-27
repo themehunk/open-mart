@@ -26,6 +26,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 = 1.2.4 =
 * Cart plugin added.
 * Option panel improved.
+* Footer Removed from lite version , added to pro.
 
 = 1.2.3 =
 * Product Hover Effect optimised in JS.
@@ -115,8 +116,10 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 1.2.3 =
-* Product Hover Effect optimised in JS.
+= 1.2.4 =
+* Cart plugin added.
+* Option panel improved.
+* Footer Removed from lite version , added to pro.
 
 == Resources ==
  
