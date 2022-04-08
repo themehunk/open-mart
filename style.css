@@ -4,9 +4,9 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.2.4
+Version: 1.2.5
 Requires at least: 4.5
-Tested up to: 5.8.1
+Tested up to: 5.9.2
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -1104,6 +1104,7 @@ header .menu-category-list:hover ul.product-cat-list{
 .below-header .thunk-icon{
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 .page-template-frontpage header .slide-layout-1 .menu-category-list{
   overflow: visible;
@@ -2140,8 +2141,8 @@ color:#fff;
     font-size:12px;
 }
 .header-icon{
-display: table-cell;
-    vertical-align: middle;
+display: inline-flex;
+    align-items: center
 }
 
 .thunk-icon .cart-icon{
@@ -2174,6 +2175,21 @@ display: table-cell;
 .cart-content .woocommerce-Price-amount,
 .count-item .item{
    display: none!important;
+}
+
+header .taiowc-icon .th-icon,
+header .taiowcp-icon .th-icon,
+.sticky-header-col3 .taiowc-icon .th-icon,
+.sticky-header-col3 .taiowcp-icon .th-icon{
+    font-size: 2rem;
+}
+header .taiowc-content .taiowc-total,
+header .taiowcp-content .taiowcp-total{
+  margin-left: 0;
+}
+
+.below-header .taiowc-cart-item,.below-header .taiowcp-cart-item{
+padding:0;
 }
 .header-icon a{
 height: 44px;
@@ -2215,7 +2231,7 @@ margin: 0px 10px 0px 0px;
 color:#ff0052;
 }
 .header-icon a i{
-font-size:14px;
+font-size:19px;
 line-height: inherit;
 font-weight: bold;
 }
@@ -2858,8 +2874,8 @@ display:none!important;
 }
 .thunk-product .yith-wcwl-wishlistexistsbrowse:before, 
 .thunk-product .yith-wcwl-wishlistaddedbrowse:before{
-    content: "\f004";
-    font-family:'fontawesome';
+    content: "\e909";
+    font-family:'th-icon';
     color: #ff0052;
     margin: 0;
     font-size:16px;
@@ -2943,7 +2959,7 @@ margin-right: 10px;
 }
 .thunk-compare .compare-button a{
 background-color:transparent;
-font-size:16px;
+font-size:14px;
 padding:0;
 font-weight:normal;
 color: #555;
@@ -2991,8 +3007,8 @@ transition: all .25s ease 0s;
 }
 
 .thunk-compare .compare-button a:before{
-content: "\f074";
-font-family: 'fontawesome';
+content: "\e917";
+font-family: "th-icon"!important;
 margin-right: 0;
 }
 .thunk-wishlist,.thunk-compare{
@@ -4503,8 +4519,8 @@ line-height: normal;
 .woocommerce div.product .product_title,section.related.products h2,
  section.upsells.products h2,.woocommerce #reviews #comments h2{color:#333;}
 .woocommerce #content div.product div.summary .th-product-compare-btn:before{
-content: "\f074";
-font-family: 'fontawesome';
+content: "\e917";
+font-family: 'th-icon';
 margin-right: 0;
 font-size:13px;
 margin-left: 7px;
@@ -5029,8 +5045,8 @@ clear: initial;
 .summary .yith-wcwl-add-to-wishlist .add_to_wishlist::before, 
 .summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse a::before, 
 .summary .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a::before {
-    content: "\f08a";
-    font-family:fontawesome;
+    content: "\e912";
+    font-family:th-icon;
     font-size: 13px;
 }
 .thunk-single-product-summary-wrap .yith-wcwl-add-button .yith-wcwl-icon{
@@ -6437,7 +6453,7 @@ font-size:30px;
     border-radius: 4px;
 }
 .sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i,.sticky-header .header-icon a i{
-  font-size:15px;
+  font-size:19px;
 }
 .sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i {
     position: relative;
@@ -6459,6 +6475,7 @@ background:transparent;
 .sticky-header .thunk-icon{
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 .sticky-header{
     position: fixed;
@@ -6499,7 +6516,20 @@ padding: 10px 0px;
 .sticky-header .logo-content img{
 max-width:65%;
 }
+.sticky-header-col3 .thaps-search-box .th-icon.click-icon,.sticky-header-col3 .tapsp-search-box .th-icon.click-icon {
+    font-size: 19px;
+    height: 44px;
+    width: 44px;
+    line-height: 44px;
+    margin:0;
+    text-align: center;
+    font-weight: bold;
+}
 
+.sticky-header-col3 .thaps-search-box.icon_style,.sticky-header-col3 .tapsp-search-box.icon_style {
+    max-width: initial;
+    min-width: auto;
+}
 /*search wrapper*/
 .search-wrapper{
     position: fixed;
@@ -7589,8 +7619,8 @@ border-top: 4px solid rgb(58, 176, 226);
     width: 100%;
      height: 100%;
     display: flex;
-    font-family: "FontAwesome";
-    content: "\f291";
+    content: "\e919";
+    font-family: "th-icon";
     font-size: 13px;
     justify-content: center;
     align-items: center;
@@ -8321,7 +8351,13 @@ text-decoration: underline !important;
   padding: 0;
 }
 
+.thunk-icon-market .taiowc-cart-item,.thunk-icon-market .taiowcp-cart-item,.sticky-header-col3 .taiowc-cart-item,.sticky-header-col3 .taiowcp-cart-item{
+padding:0;
+}
 
+.thunk-icon-market .cart-count-item,.sticky-header-col3 .cart-count-item{
+  top: -22px;
+}
 
 @media screen and (max-width: 1024px){
 header .mobile-nav-bar.sider.left,header .mobile-nav-bar.sider.right{
@@ -8337,7 +8373,7 @@ header .mobile-nav-bar.sider.left,header .mobile-nav-bar.sider.right{
   display: block;
 }
 .main-header-bar .menu-toggle .menu-btn{
-  margin-right: 10px;
+ margin-left: 10px;
 }
 /*    responsive main header css starts           */
 .main-header .responsive-main-header .main-header-col1{
@@ -9227,9 +9263,24 @@ header .taiowc-cart-item {
 
 }
 @media screen and (max-width: 767px){
-  header .taiowc-wrap{
-    display: none;
+.thunk-icon-market .cart-count-item, .sticky-header-col3 .cart-count-item{
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    top: -17px;
+    font-size: 0.78rem;
   }
+  #openmart-mobile-bar .icon-bar {
+    display: block !important;
+    width: 20px;
+    height: 1px;
+    background-color: #fff;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    margin: 5px;
+
+}
   .main-header-col1{
     width: 50%!important;
     order: 1;
@@ -9349,8 +9400,9 @@ right:15px
       margin: 0 7.5px;
   }
 /*sticky header*/
-.sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i, .sticky-header .header-icon a i {
-    font-size: 12px;
+.sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i, 
+.sticky-header .header-icon a i {
+   font-size: 18px;
 }
 .sticky-header-col3 .thunk-icon .cart-icon .cart-icon-wrap,  
 .sticky-header-col3 .header-icon a, a.prd-search {
@@ -9362,7 +9414,7 @@ right:15px
 .sticky-header-bar .menu-toggle .icon-bar {
     display: block !important;
     width: 20px;
-    height: 2px;
+    height:1px;
     background-color: #242424;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
@@ -9371,6 +9423,20 @@ right:15px
 }
 .sticky-header-col1{
   width: 40%;
+}
+.sticky-header-col3 .thaps-search-box .th-icon.click-icon, 
+.sticky-header-col3 .tapsp-search-box .th-icon.click-icon {
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+.icon_style .thaps-search-form,
+.icon_style .tapsp-search-form {
+    min-width: 300px;
 }
 /*header mhdrtwo*/
 .mhdrtwo .main-header-col1{
@@ -9622,7 +9688,7 @@ padding:7.5px
     justify-content: center;
 }
 .header-icon a i,.thunk-icon .cart-icon a.cart-contents i{
-  font-size:12px;
+  font-size:18px;
 }
 /*     mhdrfour    */
 a.cart-contents i{
@@ -9647,12 +9713,12 @@ a.cart-contents i{
 .menu-toggle .icon-bar {
     display: block !important;
     width: 22px;
-    height: 2px;
+    height: 1px;
     background-color: #242424;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    margin: 0 0 4px 0;
+    margin: 5px;
 }
 .below-header-col2 {
     width: 45%;
@@ -10143,7 +10209,7 @@ font-size:11px;
     height: 52px;
     line-height: 52px;
     transition: .3s;
-    font-size: 18px;
+    font-size:21px;
 }
 #openmart-mobile-bar .count-item{
   right: -15px;
