@@ -992,7 +992,11 @@ function open_mart_th_advance_product_search(){
 
                 echo do_shortcode('[th-aps]');
 
-              } elseif ( !shortcode_exists('th-aps') && is_user_logged_in()) {
+              } elseif ( shortcode_exists('tapsp') ){
+
+                echo do_shortcode('[tapsp]');
+
+              } elseif ( !shortcode_exists('th-aps') && !shortcode_exists('tapsp') && is_user_logged_in()) {
 
                 $url = admin_url('themes.php?page=thunk_started&th-tab=recommended-plugin');
 
@@ -1024,7 +1028,11 @@ function open_mart_th_cart(){
 
                 echo do_shortcode('[taiowc]');
 
-                } elseif ( !shortcode_exists('taiowc') && is_user_logged_in()) {
+                }elseif ( shortcode_exists('taiowcp') ){
+
+                echo do_shortcode('[taiowcp]');
+
+                } elseif ( !shortcode_exists('taiowcp') && !shortcode_exists('taiowc') && is_user_logged_in()) {
 
                 $url = admin_url('themes.php?page=thunk_started&th-tab=recommended-plugin');
 
