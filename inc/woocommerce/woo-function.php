@@ -269,14 +269,14 @@ function open_mart_add_to_compare_fltr($pid){
 
 function open_mart_whish_list_single($pid){
        if( shortcode_exists( 'yith_wcwl_add_to_wishlist' )){
-        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[yith_wcwl_add_to_wishlist icon="fa fa-heart" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]' ).'</span></div>';
+        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[yith_wcwl_add_to_wishlist icon="th-icon th-icon-favorite_outline" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]' ).'</span></div>';
        }
 }
 
 
 function open_mart_whish_list($pid){
        if( shortcode_exists( 'yith_wcwl_add_to_wishlist' )){
-        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[yith_wcwl_add_to_wishlist icon="fa fa-heart" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]' ).'</span></div>';
+        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[yith_wcwl_add_to_wishlist icon="th-icon th-icon-favorite_outline" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]' ).'</span></div>';
        }
        elseif(( class_exists( 'WPCleverWoosw' ))){
       echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[woosw id='.$pid.']').'</span></div>';
@@ -295,10 +295,10 @@ return $wishlist_permalink ;
 /** My Account Menu **/
 function open_mart_account(){
  if ( is_user_logged_in() ) {
-  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-user-o" aria-hidden="true"></i></a>';
+  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
   } 
  else {
-  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-lock" aria-hidden="true"></i></a></span>';
+  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
 }
  echo $return;
  }

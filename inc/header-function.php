@@ -535,15 +535,7 @@ else{
 
            <div class="main-header-col3">
             <div class="thunk-icon-market">
-        <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
-                <div class="btn">
-                   <span class="icon-bar"></span>
-                   <span class="icon-bar"></span>
-                   <span class="icon-bar"></span>
-               </div>
-            </button>
-        </div>
+        
             <?php open_mart_header_icon_second(); ?> 
             
          <?php if(class_exists( 'WooCommerce' )){ 
@@ -564,6 +556,16 @@ else{
                          open_mart_th_cart();
                          ?>
                      <?php  } } ?>
+
+                     <div class="menu-toggle">
+            <button type="button" class="menu-btn" id="menu-btn">
+                <div class="btn">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </div>
+            </button>
+        </div>
              
           </div>
         </div>
@@ -685,11 +687,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
        //WPC Smart Wishlist Icon
@@ -697,11 +699,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
       if($whs_icon == true){ 
        if (wp_is_mobile()!== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
 if (class_exists( 'WooCommerce' )) {
@@ -732,12 +734,12 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
       if($whs_icon == false){ 
         ?>
       <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
-        <i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php } }
      else{?>
         <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
-          <i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+          <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
        //WPC Smart Wishlist Icon
@@ -745,28 +747,28 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
       if($whs_icon == true){ 
        if (wp_is_mobile()!== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
       if (class_exists( 'WooCommerce' )) {
   if (wp_is_mobile() && $acc_icon == false){
       if ( is_user_logged_in() ) {
-        echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-user-o" aria-hidden="true"></i></a>';
+        echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
       } 
       else {
-       echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-lock" aria-hidden="true"></i></a></span>';
+       echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
       }
       
   }else{
          if ( is_user_logged_in() ) {
-  echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-user-o" aria-hidden="true"></i></a>';
+  echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
   } 
  else {
-  echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="fa fa-lock" aria-hidden="true"></i></a></span>';
+  echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
 }
        }
 } ?>     
@@ -848,14 +850,22 @@ add_action('open_mart_site_preloader','open_mart_preloader');
               <div class="thunk-icon">
         
                 <div class="header-icon">
-                  <a class="prd-search" href="#"><i class="fa fa-search"></i></a>     
+                  <a class="prd-search-icon"><?php  if ( shortcode_exists('tapsp') ){
+
+          echo do_shortcode('[tapsp layout="icon_style"]'); 
+
+        }elseif( shortcode_exists('th-aps') ){
+
+              echo do_shortcode('[th-aps layout="icon_style"]'); 
+              
+        }?></a>        
                      <?php 
                      if( class_exists( 'WPCleverWoosw' )){ ?>
-                        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                  <?php    }
                     if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
                       ?>
-                      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a>
+                      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 
                      if(class_exists( 'WooCommerce' )){
                         open_mart_account();
@@ -897,19 +907,23 @@ function openmart_mobile_navbar(){?>
 <div id="openmart-mobile-bar">
   <ul>
     
-    <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>"><i class="icon below fa fa-home" aria-hidden="true"></i></a></li>
+    <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>"><i class="icon below th-icon th-icon-home" aria-hidden="true"></i></a></li>
      <?php 
     if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))) { ?>
-    <li><a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+    <li><a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
     <?php } 
       if( class_exists( 'WPCleverWoosw' )){ ?>
-        <li><a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+        <li><a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
     <?php  }
      ?>
     <li>
             <a href="#" class="menu-btn" id="mob-menu-btn">
               
-                <i class="icon fa fa-bars" aria-hidden="true"></i>
+                <div class="btn">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </div>
                 
             </a>
  

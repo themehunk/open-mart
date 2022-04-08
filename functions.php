@@ -378,30 +378,54 @@ add_action( 'widgets_init', 'open_mart_widgets_init' );
  * Enqueue scripts and styles.
  */
 function open_mart_scripts(){
+
 	// enqueue css
+
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 	wp_enqueue_style( 'font-awesome', OPEN_MART_THEME_URI . '/third-party/fonts/font-awesome/css/font-awesome.css', '', OPEN_MART_THEME_VERSION );
+
+	wp_enqueue_style( 'th-icon', OPEN_MART_THEME_URI . '/third-party/fonts/th-icon/style.css', '', OPEN_MART_THEME_VERSION );
+
 	wp_enqueue_style( 'animate', OPEN_MART_THEME_URI . '/css/animate.css','',OPEN_MART_THEME_VERSION);
+
 	wp_enqueue_style( 'open-mart-menu', OPEN_MART_THEME_URI . '/css/open-mart-menu.css','',OPEN_MART_THEME_VERSION);
+
 	wp_enqueue_style( 'open-mart-style', get_stylesheet_uri(), array(), OPEN_MART_THEME_VERSION );
+
 	wp_add_inline_style('open-mart-style', open_mart_custom_style());
+
     //enqueue js
+
     wp_enqueue_script("jquery-effects-core",array( 'jquery' ));
+
     wp_enqueue_script('jquery-ui-autocomplete',array( 'jquery' ),'',true );
+
     wp_enqueue_script('imagesloaded');
+
     wp_enqueue_script('open-mart-menu-js', OPEN_MART_THEME_URI .'/js/open-mart-menu.js', array( 'jquery' ), '1.0.0', true );
+
     wp_enqueue_script('open-mart-accordian-menu-js', OPEN_MART_THEME_URI .'/js/open-mart-accordian-menu.js', array( 'jquery' ), OPEN_MART_THEME_VERSION , true );
+
     wp_enqueue_script( 'open-mart-custom-js', OPEN_MART_THEME_URI .'/js/open-mart-custom.js', array( 'jquery' ), OPEN_MART_THEME_VERSION , true );
+
      $openmartlocalize = array(
 				
 				'open_mart_move_to_top_optn' => (bool) get_theme_mod('open_mart_move_to_top',false),
+
 				'open_mart_sticky_header_effect' => esc_html(get_theme_mod('open_mart_sticky_header_effect','scrltop')),
+
 				//End-to-End
+
 				'open_mart_page_lyout_endtoend' => (bool) get_theme_mod('open_mart_page_lyout_endtoend',false),
+
 			);
     wp_localize_script( 'open-mart-custom-js', 'open_mart_obj',  $openmartlocalize);
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ){
+
 		wp_enqueue_script( 'comment-reply' );
+
 	}
 }
 add_action( 'wp_enqueue_scripts', 'open_mart_scripts' );
