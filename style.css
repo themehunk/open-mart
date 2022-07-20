@@ -4,9 +4,9 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.2.5
+Version: 1.2.6
 Requires at least: 4.5
-Tested up to: 5.9.2
+Tested up to: 6.1
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -9655,13 +9655,13 @@ margin: -3.25px -3.25px;
     margin: auto;
     margin-bottom: 20px;
 }
-#sidebar-primary h2.widget-title:hover,.slide-toogle:hover{
+#sidebar-primary h4.widget-title:hover,.slide-toogle:hover{
 cursor:pointer;
 }
 .sidebar-content-area .sidebar-main .sidebar-widget-wrap{
 padding:7.5px
 }
-#sidebar-primary h2.widget-title {
+#sidebar-primary h4.widget-title {
     padding-bottom:0px;
 }
 .primary-content-area {
