@@ -25,6 +25,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 == Changelog ==
 = 1.2.7 =
 * New Importer Added.
+* Function modified.
 
 = 1.2.6 =
 * Seo Optimization.
@@ -127,6 +128,7 @@ Initial release
 == Upgrade Notice ==
 = 1.2.7 =
 * New Importer Added.
+* Function modified.
 
 == Resources ==
  
