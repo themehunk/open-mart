@@ -195,6 +195,94 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
             ),
         ) );
 
+        add_theme_support( 'plugins', array(
+
+        	 'woocommerce' => array(
+                'name' => esc_html__( 'Woocommerce', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' =>'',
+                'active_filename' => 'woocommerce/woocommerce.php',
+            ),
+
+        	 'th-all-in-one-woo-cart' => array(
+                'name' => esc_html__( 'Th All In One Woo Cart', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' => esc_url('https://themehunk.com/th-all-in-one-woo-cart/'),
+                'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
+                'pro-plugin' => array('slug'=>'th-all-in-one-woo-cart-pro',
+                					'init'=>'th-all-in-one-woo-cart-pro/th-all-in-one-woo-cart-pro.php',
+                					 'admin_link'=>'th-all-in-one-woo-cart-pro',
+                					 'docs'=>esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/'),
+
+            						)
+            ),
+        	'lead-form-builder' => array(
+                'name' => esc_html__( 'Lead Form Builder', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
+                'active_filename' => 'lead-form-builder/lead-form-builder.php',
+                'pro-plugin' => array('slug'=>'lead-form-builder',
+                					'init'=>'lead-form-builder/init.php',
+                					  'admin_link'=>'wplf-plugin-menu',
+                					  'docs'=>esc_url('https://themehunk.com/docs/lead-form-builder-pro/'),
+            						)
+            ),
+            'wp-popup-builder' => array(
+                'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' => esc_url('https://themehunk.com/wp-popup-builder-pro/'),
+                'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
+                'pro-plugin' => array('slug'=>'wp-popup-builder',
+                					'init'=>'wp-popup-builder-pro/wp-popup-builder.php',
+                					'admin_link'=>'wppb',
+                					'docs'=>esc_url('https://themehunk.com/docs/wp-popup-builder-pro/'),
+            						)
+            ),
+
+            'th-advance-product-search' => array(
+                'name' => esc_html__( 'Th Advance Product Search', 'top-store-pro' ),
+                'img' => 'icon-128x128.gif',
+                'pro_link' => esc_url('https://themehunk.com/advance-product-search/'),
+                'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
+                'pro-plugin' => array('slug'=>'th-advance-product-search-pro',
+                					'init'=>'th-advance-product-search-pro/th-advance-product-search-pro.php',
+                					 'admin_link'=>'th-advance-product-search-pro',
+                					 'docs'=>esc_url('https://themehunk.com/docs/th-advance-product-search/'),
+
+            						)
+            ),
+            'th-product-compare' => array(
+                'name' => esc_html__( 'Th Product Compare', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' => esc_url('https://themehunk.com/th-product-compare/'),
+                'active_filename' => 'th-product-compare/th-product-compare.php',
+                'pro-plugin' => array('slug'=>'th-product-compare-pro',
+                					'init'=>'th-product-compare-pro/th-product-compare-pro.php',
+                					 'admin_link'=>'th-product-compare-pro',
+                					 'docs'=>esc_url('https://themehunk.com/docs/th-product-compare/'),
+
+            						)
+            ),
+            'th-variation-swatches' => array(
+                'name' => esc_html__( 'Th Variation Swatches', 'top-store-pro' ),
+                'img' => 'icon-128x128.gif',
+                'pro_link' => esc_url('https://themehunk.com/th-variation-swatches/'),
+                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
+                'pro-plugin' => array('slug'=>'th-variation-swatches',
+                					'init'=>'th-variation-swatches-pro/th-variation-swatches-pro.php',
+                					 'admin_link'=>'th-variation-swatches',
+                					 'docs'=>esc_url('https://themehunk.com/docs/th-variation-swatches-plugin/'),
+            						)
+            ), 
+            'themehunk-megamenu-plus' => array(
+                'name' => esc_html__( 'ThemeHunk Megamenu – Menu builder', 'top-store-pro' ),
+                'img' => 'icon-128x128.png',
+                'pro_link' =>'',
+                'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
+            ), 
+            
+        ) );
+
 		
 		// Add support for Custom Background.
         if(get_theme_mod('open_mart_color_scheme')=='opn-dark'){
