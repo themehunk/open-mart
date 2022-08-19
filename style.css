@@ -4,7 +4,7 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.2.6
+Version: 1.2.7
 Requires at least: 4.5
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -4523,7 +4523,6 @@ content: "\e917";
 font-family: 'th-icon';
 margin-right: 0;
 font-size:13px;
-margin-left: 7px;
 }
 .woocommerce #content div.product div.summary .th-product-compare-btn.th-added-compare{
 color:#ff0052;
@@ -9995,7 +9994,12 @@ font-size:13px
 line-height: 30px;
 min-width:70px;
 }
-.summary .yith-wcwl-add-button a, .summary .yith-wcwl-wishlistaddedbrowse a, .summary .yith-wcwl-wishlistexistsbrowse a,.woocommerce .entry-summary a.compare.button {
+.summary .yith-wcwl-add-button a, 
+.summary .yith-wcwl-wishlistaddedbrowse a, 
+.summary .yith-wcwl-wishlistexistsbrowse a,
+.woocommerce .entry-summary a.compare.button,
+.woocommerce .entry-summary a.th-product-compare-btn, 
+.woocommerce .entry-summary a.compare.button{
     height: 30px;
     line-height: 30px;
     width: 30px;

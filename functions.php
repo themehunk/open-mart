@@ -185,8 +185,6 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
         ));
 
-
-
         // Useful plugins
         add_theme_support( 'useful-plugins', array(
              'themehunk-megamenu-plus' => array(
@@ -194,7 +192,6 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                 'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
             ),
         ) );
-
 		
 		// Add support for Custom Background.
         if(get_theme_mod('open_mart_color_scheme')=='opn-dark'){
