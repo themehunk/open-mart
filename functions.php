@@ -131,6 +131,11 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
             ), 
+            'unlimited-blocks' => array(
+                'name' => esc_html__( 'Unlimited blocks For Gutenberg', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'unlimited-blocks/unlimited-blocks.php',
+            ), 
             'woocommerce' => array(
                 'name' => esc_html__( 'Woocommerce', 'open-mart' ),
                  'img' => 'icon-128x128.png',
