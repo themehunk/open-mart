@@ -4,14 +4,14 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.2.8
+Version: 1.2.9
 Requires at least: 4.5
 Tested up to: 6.1
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Text Domain: open-mart
-Tags: e-commerce, blog, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-image-header, featured-images, custom-header, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-image-header, featured-images, custom-header, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -6752,7 +6752,7 @@ border-radius:5px;
 }
 #move-to-top{
     right: 30px;
-    bottom: 30px;
+    bottom: 152px;
 }
 #move-to-top:not(.filling){
     opacity: 0;
@@ -8368,6 +8368,12 @@ padding:0;
   flex-basis: 100%;
 }
 @media screen and (max-width: 1024px){
+.thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
+  content: "\f107";
+}
+ul[data-menu-style="accordion"] ul.sub-menu li.menu-active > a > .arrow:before{
+  content: "\f106";
+}
 header .mobile-nav-bar.sider.left,header .mobile-nav-bar.sider.right{
   display:block;
 }
@@ -8487,7 +8493,6 @@ border:none;
 }
 .mobile-nav-tab-category ul[data-menu-style="accordion"] > li > a > .arrow:before {
     float: right;
-    content: "\f105";
 font-family: FontAwesome;
 font-size: 16px;
 }
@@ -10233,7 +10238,7 @@ font-size:11px;
 }
 #move-to-top {
     right: 30px;
-    bottom: 58px;
+    bottom: 152px;
 }
 .thunk-product-tab-section .tab-content,
 .tabbed-prod-widget .tab-content{
