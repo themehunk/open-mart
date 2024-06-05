@@ -5,7 +5,7 @@
             </h3>
             <p>
             <?php _e('If you like the free version of this theme, you will LOVE the full version of Open Mart which includes numerous  Advanced features, Custom Sections, Section Ordering and more useful options to customize your website.','open-mart'); ?></p>
-                <center><a class="button ztabtn" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/open-mart/') ?>"><?php _e('Upgrade To Open Mart Premium','open-mart'); ?> </a></center>
+                <center><a class="button ztabtn" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/open-mart/') ?>"><?php _e('Upgrade To Pro','open-mart'); ?> </a></center>
             </div>
             <hr>
             <div class="section">

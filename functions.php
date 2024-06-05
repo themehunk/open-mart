@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_mart_setup' ) ) :
-define( 'OPEN_MART_THEME_VERSION','1.0.0');
+define( 'OPEN_MART_THEME_VERSION','1.3.0');
 define( 'OPEN_MART_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
@@ -110,12 +110,12 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
             ),
             'th-product-compare' => array(
                  'name' => esc_html__( 'Th Product Compare', 'open-mart' ),
-                  'img' => 'icon-128x128.png',
+                  'img' => 'icon-128x128.gif',
                  'active_filename' => 'th-product-compare/th-product-compare.php',
              ),
             'th-all-in-one-woo-cart' => array(
                  'name' => esc_html__( 'TH All In One Woo Cart', 'open-mart' ),
-                  'img' => 'icon-128x128.png',
+                  'img' => 'icon-128x128.gif',
                  'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
              ),
             'th-variation-swatches' => array(
@@ -123,6 +123,11 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                  'img' => 'icon-128x128.gif',
                 'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
             ),
+			'vayu-blocks' => array(
+                'name' => esc_html__( 'Vayu blocks For Gutenberg', 'open-mart' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'vayu-blocks/vayu-blocks.php',
+            ), 
             'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
                  'img' => 'icon-128x128.png',
@@ -133,16 +138,6 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
             ), 
-            'unlimited-blocks' => array(
-                'name' => esc_html__( 'Unlimited blocks For Gutenberg', 'open-mart' ),
-                 'img' => 'icon-128x128.png',
-                'active_filename' => 'unlimited-blocks/unlimited-blocks.php',
-            ), 
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'open-mart' ),
-                 'img' => 'icon-128x128.png',
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
 
             'yith-woocommerce-wishlist' => array(
                  'name' => esc_html__( 'YITH WooCommerce Wishlist', 'open-mart' ),
@@ -166,30 +161,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                 'name' => esc_html__( 'Hunk Companion', 'open-mart' ),
                 'img' => 'icon-128x128.png',
                 'active_filename' => 'hunk-companion/hunk-companion.php',
-            ),
-
-            'one-click-demo-import' => array(
-                'name' => esc_html__( 'One Click Demo Import', 'open-mart' ),
-                'img' => 'icon-128x128.png',
-                'active_filename' => 'one-click-demo-import/one-click-demo-import.php',
-            ), 
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'open-mart' ),
-                'img' => 'icon-128x128.png',
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
-             'th-advance-product-search' => array(
-            'name' => esc_html__( 'TH Advance Product Search', 'open-mart' ),
-            'img' => 'icon-128x128.gif',
-            'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
-            ),
-            
-            'th-all-in-one-woo-cart' => array(
-                 'name' => esc_html__( 'TH All In One Woo Cart', 'open-mart' ),
-                  'img' => 'icon-128x128.png',
-                 'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
-             ),
-
+            )
         ));
 
         // Useful plugins
