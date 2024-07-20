@@ -4,9 +4,9 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.3.0
+Version: 1.3.1
 Requires at least: 4.5
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -2231,9 +2231,9 @@ margin: 0px 10px 0px 0px;
 color:#ff0052;
 }
 .header-icon a i{
-font-size:19px;
+font-size:32px;
+line-height: 32px;
 line-height: inherit;
-font-weight: bold;
 }
 /*widget css*/
 .open-mart-widget-content ul,.open-mart-widget-content ul li{
@@ -8367,6 +8367,9 @@ padding:0;
   max-width: 100%;
   flex-basis: 100%;
 }
+.yith-wcwl-add-button span{
+  display: none;
+}
 @media screen and (max-width: 1024px){
 .thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
   content: "\f107";
@@ -9702,6 +9705,9 @@ padding:7.5px
 }
 .header-icon a i,.thunk-icon .cart-icon a.cart-contents i{
   font-size:18px;
+}
+.thunk-icon-market .th-icon{
+  font-size: 21px!important;
 }
 /*     mhdrfour    */
 a.cart-contents i{

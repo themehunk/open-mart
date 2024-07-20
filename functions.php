@@ -361,7 +361,7 @@ function open_mart_scripts(){
 
 	wp_enqueue_style( 'font-awesome', OPEN_MART_THEME_URI . '/third-party/fonts/font-awesome/css/font-awesome.css', '', OPEN_MART_THEME_VERSION );
 
-	wp_enqueue_style( 'th-icon', OPEN_MART_THEME_URI . '/third-party/fonts/th-icon/style.css', '', OPEN_MART_THEME_VERSION );
+	wp_enqueue_style( 'open-mart-th-icon', OPEN_MART_THEME_URI . '/third-party/fonts/th-icon/style.css', '', OPEN_MART_THEME_VERSION );
 
 	wp_enqueue_style( 'animate', OPEN_MART_THEME_URI . '/css/animate.css','',OPEN_MART_THEME_VERSION);
 
