@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_mart_setup' ) ) :
-define( 'OPEN_MART_THEME_VERSION','1.3.0');
+define( 'OPEN_MART_THEME_VERSION','1.3.2');
 define( 'OPEN_MART_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
