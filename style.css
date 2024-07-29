@@ -8374,6 +8374,10 @@ padding:0;
 .yith-wcwl-add-button span{
   display: none;
 }
+.widget.open_mart_show_multi_slide .thunk-list{
+  flex-wrap: initial;
+  align-items: initial;
+}
 @media screen and (max-width: 1024px){
 .thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
   content: "\f107";

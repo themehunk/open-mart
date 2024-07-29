@@ -26,6 +26,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 = 1.3.2 =
 * New: New theme.json version 3 added.
+* Update: Widget style improved.
 
 = 1.3.1 =
 * Update: Theme made compatible with WordPress 6.6.
