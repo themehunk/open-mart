@@ -4,9 +4,9 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.3.2
-Requires at least: 4.5
-Tested up to: 6.6
+Version: 1.3.3
+Requires at least: 5.0
+Tested up to: 6.7
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -1251,7 +1251,7 @@ width: 100%;
     font-size: 44px;
     line-height: 44px;
     margin-bottom: 32px;
-    font-family: : 'SourceSansPro-Bold';
+    font-family:  'SourceSansPro-Bold';
     margin-top: 12PX;
 }
 .slider-content-caption p {
@@ -2231,9 +2231,12 @@ margin: 0px 10px 0px 0px;
 color:#ff0052;
 }
 .header-icon a i{
-font-size:32px;
-line-height: 32px;
+font-size:27px;
+line-height: 27px;
 line-height: inherit;
+}
+.sticky-header-bar .header-icon a i{
+  font-weight: bold;
 }
 /*widget css*/
 .open-mart-widget-content ul,.open-mart-widget-content ul li{
@@ -4549,7 +4552,7 @@ display: inline-block;
 .single-product div.product form.cart button.plus{
     display: inline-block;
     float: left;
-    font-size:16px
+    font-size:16px;
     font-weight: 100;
     height: 35px;
     line-height:35px;
@@ -5089,7 +5092,8 @@ min-width:auto;
 /*compare style*/
 .woocommerce .entry-summary a.th-product-compare-btn,
 .woocommerce .entry-summary a.compare.button,
-.entry-summary .wooscp-btn{
+.entry-summary .wooscp-btn,
+.summary .yith-wcwl-add-to-wishlist-button {
 border: 1px solid;
     border-radius: 30px;
     color: #9c9c9c;
@@ -6457,6 +6461,7 @@ font-size:30px;
 }
 .sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i,.sticky-header .header-icon a i{
   font-size:19px;
+  font-size: bold;
 }
 .sticky-header-col3 .thunk-icon .cart-icon a.cart-contents i {
     position: relative;
@@ -8374,6 +8379,54 @@ padding:0;
 .yith-wcwl-add-button span{
   display: none;
 }
+.widget.open_mart_show_multi_slide .thunk-list{
+  flex-wrap: initial;
+  align-items: initial;
+}
+/* New Wishlist 2025  */
+.summary .yith-wcwl-add-to-wishlist-button{
+  font-size: initial;
+}
+
+.summary .yith-wcwl-add-to-wishlist-button__label{
+  display: none;
+}
+.summary .yith-wcwl-add-to-wishlist-button:before{
+    content: "\e912";
+    font-family: th-icon;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+.summary .yith-wcwl-add-to-wishlist-button--added:before{
+    content: "\e909";
+}
+.summary .yith-add-to-wishlist-button-block--single{
+    margin: 0;
+    float: left;
+}
+.theme-open-mart .yith-wcwl-add-to-wishlist-button svg{
+    display: none;
+}
+.theme-open-mart .yith-wcwl-add-to-wishlist-button:before{
+     content: "\e912";
+    font-family: th-icon;
+}
+.theme-open-mart .yith-wcwl-add-to-wishlist-button--added:before{
+   content: "\e909";
+}
+.theme-open-mart .yith-wcwl-add-to-wishlist-button--added .yith-wcwl-add-to-wishlist-button__label{
+    display: none;
+}
+.theme-open-mart .yith-wcwl-add-to-wishlist-button__label{
+  display: none;
+}
+.theme-open-mart .yith-add-to-wishlist-button-block{
+  margin: 0;
+}
 @media screen and (max-width: 1024px){
 .thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
   content: "\f107";
@@ -8848,7 +8901,7 @@ display: none!important;
   color: transparent;
 }
 .thunk-blog-testimonial-content .th-right{
-  width: 32%
+  width: 32%;
   margin-right: 0;
 }
 .thunk-nl-icon{
@@ -8973,8 +9026,7 @@ letter-spacing: normal;
     text-align:center;
 }
 .thunk-wishlist a, .thunk-compare a {
-    font-size: 0;
-margin:0;
+    margin:0;
     display: block;
 }
 
@@ -10389,7 +10441,7 @@ a.slide-btn,
 } 
 
 #search-button.ui-autocomplete-loading:before{
-top:2px
+top:2px;
 right: 0px;
 }
 
