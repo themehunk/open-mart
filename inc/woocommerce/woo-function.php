@@ -316,10 +316,10 @@ return $wishlist_permalink ;
 /** My Account Menu **/
 function open_mart_account(){
  if ( is_user_logged_in() ) {
-  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
+  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
   } 
  else {
-  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
+  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
 }
  echo $return;
  }

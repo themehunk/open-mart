@@ -73,7 +73,7 @@ if ( has_nav_menu('open-mart-above-menu' ) ){?>
 <!-- Menu Toggle btn-->
      <nav> 
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn-abv">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn-abv">
               <div class="btn">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -122,7 +122,7 @@ function open_mart_top_header_conetnt_col2($content,$mobileopen){ ?>
 <!-- Menu Toggle btn-->
         <nav> 
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn-abv">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn-abv">
                 <div class="btn">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -172,7 +172,7 @@ function open_mart_top_header_conetnt_col3($content,$mobileopen){ ?>
 <!-- Menu Toggle btn-->
         <nav>
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn-abv">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn-abv">
                 <div class="btn">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -246,7 +246,7 @@ $open_mart_top_slide_layout = get_theme_mod('open_mart_top_slide_layout','slide-
         <nav>
         <!-- Menu Toggle btn-->
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -309,7 +309,7 @@ $open_mart_top_slide_layout = get_theme_mod('open_mart_top_slide_layout','slide-
             <nav>
         <!-- Menu Toggle btn-->
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -421,7 +421,7 @@ else{
            <div class="main-header-col3">
             <div class="thunk-icon-market">
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -467,7 +467,7 @@ else{
         <nav>
         <!-- Menu Toggle btn-->
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -558,7 +558,7 @@ else{
                      <?php  } } ?>
 
                      <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -687,11 +687,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
        //WPC Smart Wishlist Icon
@@ -699,11 +699,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
       if($whs_icon == true){ 
        if (wp_is_mobile()!== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
 if (class_exists( 'WooCommerce' )) {
@@ -733,12 +733,12 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') == true){
       if($whs_icon == false){ 
         ?>
-      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
         <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php } }
      else{?>
-        <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
           <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
@@ -747,11 +747,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
       if($whs_icon == true){ 
        if (wp_is_mobile()!== true):
         ?>
-      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
       if (class_exists( 'WooCommerce' )) {
@@ -814,7 +814,7 @@ add_action('open_mart_site_preloader','open_mart_preloader');
              <nav>
         <!-- Menu Toggle btn-->
         <div class="menu-toggle">
-            <button type="button" class="menu-btn" id="menu-btn-stk">
+            <button type="button" class="menu-btn" aria-label="menu" id="menu-btn-stk">
                 <div class="btn">
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -861,11 +861,11 @@ add_action('open_mart_site_preloader','open_mart_preloader');
         }?></a>        
                      <?php 
                      if( class_exists( 'WPCleverWoosw' )){ ?>
-                        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+                        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                  <?php    }
                     if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
                       ?>
-                      <a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+                      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 
                      if(class_exists( 'WooCommerce' )){
                         open_mart_account();
@@ -907,17 +907,17 @@ function openmart_mobile_navbar(){?>
 <div id="openmart-mobile-bar">
   <ul>
     
-    <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>"><i class="icon below th-icon th-icon-home" aria-hidden="true"></i></a></li>
+    <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>" aria-label="home"><i class="icon below th-icon th-icon-home" aria-hidden="true"></i></a></li>
      <?php 
     if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))) { ?>
-    <li><a class="whishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
+    <li><a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
     <?php } 
       if( class_exists( 'WPCleverWoosw' )){ ?>
-        <li><a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
+        <li><a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
     <?php  }
      ?>
     <li>
-            <a href="#" class="menu-btn" id="mob-menu-btn">
+            <a href="#" class="menu-btn" aria-label="menu" id="mob-menu-btn">
               
                 <div class="btn">
                    <span class="icon-bar"></span>
