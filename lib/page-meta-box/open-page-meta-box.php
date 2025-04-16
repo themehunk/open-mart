@@ -17,35 +17,6 @@ if ( ! function_exists( 'open_mart_admin_scripts' ) ) :
 endif;
 add_action( 'admin_enqueue_scripts', 'open_mart_admin_scripts' );
 
-$prefix='open_mart_';
-
-$meta_boxes = array(
-      array(
-        'id' => 'open-meta-box',
-        'title' => esc_html__('Dynamic Sidebar','open-mart'),
-        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
-        'context' => 'side',
-        'priority' => 'low',
-        'fields' => array(
-            array(
-                'name' => esc_html__('Sidebar','open-mart'),
-                'id' => $prefix . 'sidebar_dyn',
-                'type' => 'select',
-                'std' => 'right',
-                'options' => array( 
-                    array("value" => 'right',"name" => esc_html__('Right Sidebar','open-mart')),
-                    array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','open-mart')),
-                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','open-mart')),
-                    
-                 )
-             ),
-              
-        )
-    )
-);
-foreach ($meta_boxes as $meta_box){
-    $my_box = new open_mart_thMetaDataClass($meta_box);
-}
 
 class open_mart_thMetaDataClass {
  
@@ -151,3 +122,36 @@ class open_mart_thMetaDataClass {
         }
     }
 }
+
+function open_mart_register_meta_boxes() {
+$prefix='open_mart_';
+
+$meta_boxes = array(
+      array(
+        'id' => 'open-meta-box',
+        'title' => esc_html__('Dynamic Sidebar','open-mart'),
+        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
+        'context' => 'side',
+        'priority' => 'low',
+        'fields' => array(
+            array(
+                'name' => esc_html__('Sidebar','open-mart'),
+                'id' => $prefix . 'sidebar_dyn',
+                'type' => 'select',
+                'std' => 'right',
+                'options' => array( 
+                    array("value" => 'right',"name" => esc_html__('Right Sidebar','open-mart')),
+                    array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','open-mart')),
+                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','open-mart')),
+                    
+                 )
+             ),
+              
+        )
+    )
+);
+foreach ($meta_boxes as $meta_box){
+    $my_box = new open_mart_thMetaDataClass($meta_box);
+}
+}
+add_action( 'init', 'open_mart_register_meta_boxes' );
