@@ -103,14 +103,14 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
                 'active_filename' => 'hunk-companion/hunk-companion.php',
             ),
 			'vayu-blocks' => array(
-			   'name' => esc_html__( 'Vayu blocks For Gutenberg', 'top-store-pro' ),
+			   'name' => esc_html__( 'Vayu blocks For Gutenberg', 'open-mart' ),
 			   'img' => 'icon-128x128.png',
 			   'pro_link' =>'',
 			   'active_filename' => 'vayu-blocks/vayu-blocks.php',
 			   ),
 
 			   'th-advance-product-search' => array(
-			   'name' => esc_html__( 'Th Advance Product Search', 'top-store-pro' ),
+			   'name' => esc_html__( 'Th Advance Product Search', 'open-mart' ),
 			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/advance-product-search/'),
 			   'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
@@ -123,7 +123,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 		   ),
 
 			'th-all-in-one-woo-cart' => array(
-			   'name' => esc_html__( 'Th All In One Woo Cart', 'top-store-pro' ),
+			   'name' => esc_html__( 'Th All In One Woo Cart', 'open-mart' ),
 			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/th-all-in-one-woo-cart/'),
 			   'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
@@ -135,7 +135,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 								   )
 		   ),
 		   'th-product-compare' => array(
-			   'name' => esc_html__( 'Th Product Compare', 'top-store-pro' ),
+			   'name' => esc_html__( 'Th Product Compare', 'open-mart' ),
 			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/th-product-compare/'),
 			   'active_filename' => 'th-product-compare/th-product-compare.php',
@@ -147,7 +147,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 								   )
 		   ),
 		   'lead-form-builder' => array(
-			   'name' => esc_html__( 'Lead Form Builder', 'top-store-pro' ),
+			   'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
 			   'img' => 'icon-128x128.png',
 			   'pro_link' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
 			   'active_filename' => 'lead-form-builder/lead-form-builder.php',
@@ -158,7 +158,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 								   )
 		   ),
 		   'th-variation-swatches' => array(
-			   'name' => esc_html__( 'Th Variation Swatches', 'top-store-pro' ),
+			   'name' => esc_html__( 'Th Variation Swatches', 'open-mart' ),
 			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/th-variation-swatches/'),
 			   'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
@@ -169,7 +169,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 								   )
 		   ), 
 		   'wp-popup-builder' => array(
-			   'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'top-store-pro' ),
+			   'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'open-mart' ),
 			   'img' => 'icon-128x128.png',
 			   'pro_link' => esc_url('https://themehunk.com/wp-popup-builder-pro/'),
 			   'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
