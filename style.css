@@ -4,7 +4,7 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.3.4
+Version: 1.3.5
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 5.6
@@ -1106,12 +1106,12 @@ header .menu-category-list:hover ul.product-cat-list{
   justify-content: flex-end;
   align-items: center;
 }
-.page-template-frontpage header .slide-layout-1 .menu-category-list{
+/*.page-template-frontpage header .slide-layout-1 .menu-category-list{
   overflow: visible;
 }
 .page-template-frontpage header .slide-layout-1 .menu-category-list ul.product-cat-list{
   margin-top: 0;
-}
+}*/
 /* header common css END */
 /*****************/
 /*Menu Alignment*/
@@ -2187,7 +2187,12 @@ header .taiowc-content .taiowc-total,
 header .taiowcp-content .taiowcp-total{
   margin-left: 0;
 }
-
+header .taiowcp-icon .th-icon, 
+header .taiowc-content .taiowc-total, 
+header .taiowcp-content .taiowcp-total,
+header .taiowc-cart-item .th-icon{
+  color: #FFF;
+}
 .below-header .taiowc-cart-item,.below-header .taiowcp-cart-item{
 padding:0;
 }
@@ -8273,9 +8278,9 @@ max-width: 1583px;
 .thunk-product-wrap > a.compare.button{
   display: none;
 }
-.page-template-frontpage .slide-layout-1 ul.product-cat-list{
+/*.page-template-frontpage .slide-layout-1 ul.product-cat-list{
   display: block;
-}
+}*/
 .dropdown-link:after{
     position: absolute;
     display: block;
