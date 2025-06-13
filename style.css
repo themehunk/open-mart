@@ -1106,12 +1106,12 @@ header .menu-category-list:hover ul.product-cat-list{
   justify-content: flex-end;
   align-items: center;
 }
-.page-template-frontpage header .slide-layout-1 .menu-category-list{
+/*.page-template-frontpage header .slide-layout-1 .menu-category-list{
   overflow: visible;
 }
 .page-template-frontpage header .slide-layout-1 .menu-category-list ul.product-cat-list{
   margin-top: 0;
-}
+}*/
 /* header common css END */
 /*****************/
 /*Menu Alignment*/
@@ -2187,7 +2187,12 @@ header .taiowc-content .taiowc-total,
 header .taiowcp-content .taiowcp-total{
   margin-left: 0;
 }
-
+header .taiowcp-icon .th-icon, 
+header .taiowc-content .taiowc-total, 
+header .taiowcp-content .taiowcp-total,
+header .taiowc-cart-item .th-icon{
+  color: #FFF;
+}
 .below-header .taiowc-cart-item,.below-header .taiowcp-cart-item{
 padding:0;
 }
@@ -8273,9 +8278,9 @@ max-width: 1583px;
 .thunk-product-wrap > a.compare.button{
   display: none;
 }
-.page-template-frontpage .slide-layout-1 ul.product-cat-list{
+/*.page-template-frontpage .slide-layout-1 ul.product-cat-list{
   display: block;
-}
+}*/
 .dropdown-link:after{
     position: absolute;
     display: block;

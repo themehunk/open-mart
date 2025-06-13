@@ -25,7 +25,8 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 == Changelog ==
 
 = 1.3.5 =
-* Update: multiple text domain removed.
+* Update: Permanent category open in slide-layout1 in header removed.
+* Update: Header and footer cart icon color issue resolved.
 
 = 1.3.4 =
 * Update: _load_textdomain_just_in_time was called incorrectly issue resolved.
@@ -166,9 +167,10 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-
 = 1.3.5 =
-* Update: multiple text domain removed.
+* Update: Permanent category open in slide-layout1 in header removed.
+* Update: Header and footer cart icon color issue resolved.
+
 
 == Resources ==
  
