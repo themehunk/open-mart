@@ -7,6 +7,79 @@
  * @copyright   Copyright (c) 2019, Open Mart
  * @since       Open Mart 1.0.0
  */
+if ( !function_exists('open_mart_get_page_classes')) {
+function open_mart_get_page_classes() {
+    $classes = '';
+if(is_page_template( 'page-contact.php' ) || is_page_template( 'page-faq.php' ) ||is_page_template( 'page-aboutus.php' )){
+$classes = 'no-sidebar';
+}
+elseif(!is_404() && !is_search() && is_page()){ 
+  $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'open_mart_disable_page_sidebar', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(is_single() && (class_exists( 'WooCommerce' ) && !is_product())){
+      $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'open_mart_disable_page_sidebar', true );
+      if(get_theme_mod('open_mart_blog_single_sidebar_disable')==true){
+        $classes = 'no-sidebar';
+        }else{
+          if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+         }
+       }
+       
+}elseif(open_mart_is_blog()){
+      $blog_page_id = get_option( 'page_for_posts' );
+        $page_post_meta_sidebar = get_post_meta( $blog_page_id, 'open_mart_disable_page_sidebar', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(class_exists( 'WooCommerce' ) && is_shop()){
+      $shop_page_id = get_option( 'woocommerce_shop_page_id' );
+        $page_post_meta_sidebar = get_post_meta( $shop_page_id, 'open_mart_disable_page_sidebar', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(class_exists( 'WooCommerce' ) && is_product()){
+      $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'open_mart_disable_page_sidebar', true );
+      if(get_theme_mod('open_mart_product_single_sidebar_disable')==true){
+        $classes = 'no-sidebar';
+        }else{
+     if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+     }
+  }
+}
+
+    return esc_attr($classes);
+}
+}
+/**************************************/
+// Wrapper of header markup
+/**************************************/
+if ( !function_exists('open_mart_full_header_markup') ) {
+function open_mart_full_header_markup() { ?>
+<header>
+    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'open-mart' ); ?></a>
+    <?php do_action( 'open_mart_sticky_header' ); ?> 
+        <!-- sticky header -->
+    <?php if(get_theme_mod('open_mart_above_mobile_disable',true)==true){
+      if (wp_is_mobile()!== true):
+             do_action( 'open_mart_top_header' );  
+            endif;
+    }elseif(get_theme_mod('open_mart_above_mobile_disable',true)==false){
+       do_action( 'open_mart_top_header' );  
+    } ?> 
+    <!-- end top-header -->
+        <?php do_action( 'open_mart_main_header' ); ?> 
+    <!-- end main-header -->
+    <?php do_action( 'open_mart_below_header' ); ?> 
+    <!-- end below-header -->
+  </header> <!-- end header -->
+<?php }
+add_action('open_mart_header', 'open_mart_full_header_markup');
+}
+
 /**************************************/
 //Top Header function
 /**************************************/
