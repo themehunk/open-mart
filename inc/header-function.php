@@ -681,7 +681,7 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
 ?>
 <div class="header-icon">
      <?php 
-    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
+   if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
       if($whs_icon == true){ 
        if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== true 
@@ -694,17 +694,6 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
-       //WPC Smart Wishlist Icon
-    if( class_exists( 'WPCleverWoosw' )){
-      if($whs_icon == true){ 
-       if (wp_is_mobile()!== true):
-        ?>
-      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-      
-     <?php endif; }
-     elseif($whs_icon == false){?>
-        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-    <?php  } }
 
 if (class_exists( 'WooCommerce' )) {
     if($acc_icon == true){
@@ -726,7 +715,7 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
 ?>
 <div class="header-icon">
      <?php 
-    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
+    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
       
       if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') == true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') == true 
@@ -740,18 +729,6 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
      else{?>
         <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
           <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-    <?php  } }
-
-       //WPC Smart Wishlist Icon
-    if( class_exists( 'WPCleverWoosw' )){
-      if($whs_icon == true){ 
-       if (wp_is_mobile()!== true):
-        ?>
-      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-      
-     <?php endif; }
-     elseif($whs_icon == false){?>
-        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
       if (class_exists( 'WooCommerce' )) {
@@ -863,7 +840,7 @@ add_action('open_mart_site_preloader','open_mart_preloader');
                      if( class_exists( 'WPCleverWoosw' )){ ?>
                         <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                  <?php    }
-                    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
+                    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
                       ?>
                       <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 
@@ -909,13 +886,9 @@ function openmart_mobile_navbar(){?>
     
     <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>" aria-label="home"><i class="icon below th-icon th-icon-home" aria-hidden="true"></i></a></li>
      <?php 
-    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))) { ?>
+    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){ ?>
     <li><a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
-    <?php } 
-      if( class_exists( 'WPCleverWoosw' )){ ?>
-        <li><a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
-    <?php  }
-     ?>
+    <?php }  ?>
     <li>
             <a href="#" class="menu-btn" aria-label="menu" id="mob-menu-btn">
               
