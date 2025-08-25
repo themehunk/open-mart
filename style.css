@@ -4,7 +4,7 @@ Theme URI: https://themehunk.com/product/open-mart/
 Author: ThemeHunk
 Author URI: https://www.themehunk.com
 Description: Open Mart is a fully Versatile eCommerce WordPress theme suitable for any kind of Fashion Shop, Hightech Store, Gift Shop, Food, Grocery, Clothing Shop, Electronics shop and all kinds of marketplace business that needs a feature-rich and beautiful presence site. Theme option panel is so easy to use, and it is deeply integrated with Woocommerce plugin and Lead form Builder plugin. Some theme features are quick view, translation ready, shop with category, Top slider, Section on/off, Global Colors, Header & Footer layouts, Product Filter, Vertical Tabbed Carousel, Banner, Brand Section Etc. Theme is a fully responsive template that works perfect on all kind of resolutions as well for mobile, tablet, desktop having a medium and large screen.
-Version: 1.3.5
+Version: 1.3.6
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 5.6
@@ -5098,7 +5098,8 @@ min-width:auto;
 .woocommerce .entry-summary a.th-product-compare-btn,
 .woocommerce .entry-summary a.compare.button,
 .entry-summary .wooscp-btn,
-.summary .yith-wcwl-add-to-wishlist-button {
+.summary .yith-wcwl-add-to-wishlist-button,
+.summary .thw-add-to-wishlist-button {
 border: 1px solid;
     border-radius: 30px;
     color: #9c9c9c;
@@ -5109,9 +5110,21 @@ border: 1px solid;
     width: 35px;
     background:transparent;
     text-align:center;
-    margin-left:10px;
+    margin-right:10px;
     font-weight: normal;
     min-width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.summary .thw-to-add-text,
+.summary .thw-to-browse-text,
+.summary .th-product-compare-btn i,
+.summary .th-product-compare-btn .text{
+  display: none;
+}
+.summary .thw-add-to-wishlist-button *{
+  color: inherit!important;
 }
 .entry-summary .wooscp-btn:before,
 .summary .woosw-btn:before{
@@ -5363,7 +5376,6 @@ border-radius: 30px;
     border: 0;
     padding: 20px;
 }
-.woocommerce-checkout .thunk-content-wrap{display:-webkit-flex;}
 .woocommerce #order_review table.shop_table thead th {
     font-size: 15px;
     letter-spacing: 1px;
@@ -8391,6 +8403,7 @@ padding:0;
 /* New Wishlist 2025  */
 .summary .yith-wcwl-add-to-wishlist-button{
   font-size: initial;
+  margin-right: 10px!important;
 }
 
 .summary .yith-wcwl-add-to-wishlist-button__label{
@@ -8431,6 +8444,18 @@ padding:0;
 }
 .theme-open-mart .yith-add-to-wishlist-button-block{
   margin: 0;
+}
+.summary  .thw-add-to-wishlist-button-wrap{
+  float: left;
+}
+.summary .th-wishlist-icon-svg{
+  width: 18px;
+}
+.woocommerce-cart .wc-block-cart{
+  font-size: 1.2rem;
+}
+.woocommerce-checkout .wc-block-checkout{
+  font-size: 1rem;
 }
 @media screen and (max-width: 1024px){
 .thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
@@ -10080,10 +10105,15 @@ min-width:70px;
 .summary .yith-wcwl-wishlistexistsbrowse a,
 .woocommerce .entry-summary a.compare.button,
 .woocommerce .entry-summary a.th-product-compare-btn, 
-.woocommerce .entry-summary a.compare.button{
+.woocommerce .entry-summary a.compare.button,
+.woocommerce .entry-summary a.th-product-compare-btn, .woocommerce .entry-summary a.compare.button, .entry-summary .wooscp-btn, .summary .yith-wcwl-add-to-wishlist-button,
+ .summary .thw-add-to-wishlist-button{
     height: 30px;
     line-height: 30px;
     width: 30px;
+}
+.yith-add-to-wishlist-button-block{
+  clear: both!important;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
 padding: 0px 7.5px 0px 0px;

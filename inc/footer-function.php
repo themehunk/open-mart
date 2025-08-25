@@ -7,6 +7,28 @@
  * @copyright   Copyright (c) 2019, Open Mart
  * @since       Open Mart 1.0.0
  */
+if ( !function_exists('open_mart_full_footer_markup') ) {
+function open_mart_full_footer_markup() { ?>
+  <footer>
+         <?php 
+          // top-footer 
+          do_action( 'open_mart_top_footer' ); 
+          // widget-footer
+              do_action( 'open_mart_widget_footer' );
+              // below-footer
+          if (function_exists( 'open_mart_load_plugin' ) ){
+             do_action( 'open_mart_pro_below_footer' );  
+          }
+          else{
+            do_action( 'open_mart_default_bottom_footer' );  
+          }
+        ?>
+     </footer> <!-- end footer -->
+    <?php }
+
+// Hook the custom footer function into 'zita_footer'
+add_action('open_mart_footer', 'open_mart_full_footer_markup');
+}
 /**************************************/
 //Top footer function
 /**************************************/

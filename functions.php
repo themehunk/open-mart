@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_mart_setup' ) ) :
-define( 'OPEN_MART_THEME_VERSION','1.3.5');
+define( 'OPEN_MART_THEME_VERSION','1.3.6');
 define( 'OPEN_MART_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
@@ -146,6 +146,12 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
 								   )
 		   ),
+		   'th-wishlist' => array(
+			   'name' => esc_html__( 'TH Wishlist for WooCommerce', 'open-mart' ),
+			   'img' => 'icon-128x128.gif',
+			   'pro_link' =>'',
+			   'active_filename' => 'th-wishlist/th-wishlist.php',
+			   ),
 		   'lead-form-builder' => array(
 			   'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
 			   'img' => 'icon-128x128.png',
@@ -391,7 +397,7 @@ function open_mart_scripts(){
 
 	wp_enqueue_style( 'font-awesome', OPEN_MART_THEME_URI . '/third-party/fonts/font-awesome/css/font-awesome.css', '', OPEN_MART_THEME_VERSION );
 
-	wp_enqueue_style( 'open-mart-th-icon', OPEN_MART_THEME_URI . '/third-party/fonts/th-icon/style.css', '', OPEN_MART_THEME_VERSION );
+	wp_enqueue_style( 'th-icon', OPEN_MART_THEME_URI . '/third-party/fonts/th-icon/style.css', '', OPEN_MART_THEME_VERSION );
 
 	wp_enqueue_style( 'animate', OPEN_MART_THEME_URI . '/css/animate.css','',OPEN_MART_THEME_VERSION);
 
@@ -400,6 +406,8 @@ function open_mart_scripts(){
 	wp_enqueue_style( 'open-mart-style', get_stylesheet_uri(), array(), OPEN_MART_THEME_VERSION );
 
 	wp_add_inline_style('open-mart-style', open_mart_custom_style());
+	
+	wp_add_inline_style('open-mart-style', '@font-face{font-family:"th-icon";src:url("' . esc_url(get_template_directory_uri() . '/third-party/fonts/th-icon/fonts/th-icon.ttf?k3xn19') . '") format("truetype");font-weight:normal;font-style:normal;font-display:block;}');
 
     //enqueue js
 
