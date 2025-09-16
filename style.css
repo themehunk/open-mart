@@ -8457,6 +8457,9 @@ padding:0;
 .woocommerce-checkout .wc-block-checkout{
   font-size: 1rem;
 }
+li.cat-item-none{
+  padding: 9px;
+}
 @media screen and (max-width: 1024px){
 .thunk-product-cat-list > li > ul.sub-menu li > a > .arrow:before{
   content: "\f107";

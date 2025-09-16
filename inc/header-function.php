@@ -685,7 +685,7 @@ function open_mart_main_header_optn(){
 if ( ! function_exists( 'open_mart_logo' ) ){
 function open_mart_logo(){
 $title_disable          = get_theme_mod( 'title_disable','enable');
-$tagline_disable        = get_theme_mod( 'tagline_disable','enable');
+$tagline_disable        = get_theme_mod( 'tagline_disable','');
 $description            = get_bloginfo( 'description', 'display' );
 open_mart_custom_logo(); 
 if($title_disable!='' || $tagline_disable!=''){
@@ -760,11 +760,11 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== true):
         ?>
-      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php endif; }
      elseif($whs_icon == false){?>
-        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
 
@@ -795,30 +795,30 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
         || strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') == true){
       if($whs_icon == false){ 
         ?>
-      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
+      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist">
         <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
       
      <?php } }
      else{?>
-        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>">
+        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist">
           <i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
       if (class_exists( 'WooCommerce' )) {
   if (wp_is_mobile() && $acc_icon == false){
       if ( is_user_logged_in() ) {
-        echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
+        echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
       } 
       else {
-       echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
+       echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
       }
       
   }else{
          if ( is_user_logged_in() ) {
-  echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
+  echo $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
   } 
  else {
-  echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
+  echo $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
 }
        }
 } ?>     
@@ -910,12 +910,9 @@ add_action('open_mart_site_preloader','open_mart_preloader');
               
         }?></a>        
                      <?php 
-                     if( class_exists( 'WPCleverWoosw' )){ ?>
-                        <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-                 <?php    }
                     if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
                       ?>
-                      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
+                      <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 
                      if(class_exists( 'WooCommerce' )){
                         open_mart_account();

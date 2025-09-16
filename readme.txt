@@ -37,6 +37,8 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 9. Update: Header implementation through hooks using do_action( 'open_mart_header' );
 10. Update: Footer implementation through hooks using do_action( 'open_mart_footer' );
 11. Update: Absolute path in th-icon issue resolved.
+12. Tooltip added in account and wishlist.
+13. Theme preview style modified.
 
 
 = 1.3.5 =
