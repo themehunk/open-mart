@@ -59,7 +59,7 @@ elseif(!is_404() && !is_search() && is_page()){
 /**************************************/
 if ( !function_exists('open_mart_full_header_markup') ) {
 function open_mart_full_header_markup() { ?>
-<header>
+<header class="open-mart-header">
     <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'open-mart' ); ?></a>
     <?php do_action( 'open_mart_sticky_header' ); ?> 
         <!-- sticky header -->
@@ -754,7 +754,7 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
 ?>
 <div class="header-icon">
      <?php 
-   if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
+   if( shortcode_exists( 'thwl_add_to_wishlist' ) || class_exists( 'YITH_WCWL' )){
       if($whs_icon == true){ 
        if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== true 
@@ -788,7 +788,7 @@ $acc_icon = get_theme_mod('open_mart_account_mobile_disable',false);
 ?>
 <div class="header-icon">
      <?php 
-    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
+    if( shortcode_exists( 'thwl_add_to_wishlist' ) || class_exists( 'YITH_WCWL' )){
       
       if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') == true 
         || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') == true 
@@ -910,7 +910,7 @@ add_action('open_mart_site_preloader','open_mart_preloader');
               
         }?></a>        
                      <?php 
-                    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
+                    if( shortcode_exists( 'thwl_add_to_wishlist' ) || class_exists( 'YITH_WCWL' )){
                       ?>
                       <a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>" title="Wishlist"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 
@@ -956,7 +956,7 @@ function openmart_mobile_navbar(){?>
     
     <li><a class="gethome" href="<?php echo esc_url( get_home_url() ); ?>" aria-label="home"><i class="icon below th-icon th-icon-home" aria-hidden="true"></i></a></li>
      <?php 
-    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){ ?>
+    if( shortcode_exists( 'thwl_add_to_wishlist' ) || class_exists( 'YITH_WCWL' )){ ?>
     <li><a class="whishlist" aria-label="wishlist" href="<?php echo esc_url( open_mart_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a></li>
     <?php }  ?>
     <li>
