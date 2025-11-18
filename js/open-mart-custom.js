@@ -174,6 +174,12 @@
                  animationSpeed:'medium', //slow, medium, fast
                  accoridonExpAll:true//Expands all the accordion menu on click
              });
+                  $(".menu ul.open-mart-menu").openMartResponsiveMenu({
+                 resizeWidth:'1024', // Set the same in Media query       
+                 animationSpeed:'medium', //slow, medium, fast
+                 accoridonExpAll:true//Expands all the accordion menu on click
+             });
+                  
                  $("#mobile-nav-tab-menu #menu-all-pages.open-mart-menu").openMartResponsiveMenu({
                  resizeWidth:'1024', // Set the same in Media query       
                  animationSpeed:'medium', //slow, medium, fast

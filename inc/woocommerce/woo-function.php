@@ -297,22 +297,29 @@ function open_mart_whish_list_single($pid){
 
 
 function open_mart_whish_list($pid){
+        if ( shortcode_exists( 'thwl_add_to_wishlist' ) ) { ?>
+              <div class="thunk-wishlist">
+                <span class="thunk-wishlist-inner">
+                  <?= do_shortcode('[thwl_add_to_wishlist 
+                    product_id="' . esc_attr($pid) . '" 
+                    add_icon="th-icon th-icon-heart1" 
+                    add_text="" 
+                    add_browse_icon="th-icon th-icon-favorite"
+                    browse_text=""
+                    theme_style="yes"
+                    icon_style="icon_only_no_style"
+                    custom_class="th-wishlist-integrated"
+                  ]'); ?>
+                </span>
+              </div>
+        <?php } elseif ( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ) { ?>
+          <div class="thunk-wishlist">
+            <span class="thunk-wishlist-inner">
+              <?= do_shortcode('[yith_wcwl_add_to_wishlist icon="th-icon th-icon-favorite_outline" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]'); ?>
+            </span>
+          </div>
+        <?php } 
 
-         if( shortcode_exists( 'thwl_add_to_wishlist' )){
-        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'. do_shortcode('[thwl_add_to_wishlist 
-                product_id="' . esc_attr($pid) . '" 
-                add_icon="th-icon th-icon-heart1" 
-                add_text="" 
-                add_browse_icon="th-icon th-icon-favorite"
-                browse_text=""
-                theme_style="yes"
-                icon_style="icon_only_no_style"
-                custom_class="th-wishlist-integrated"
-              ]').'</span></div>';
-       }
-       elseif( shortcode_exists( 'yith_wcwl_add_to_wishlist' )){
-        echo '<div class="thunk-wishlist"><span class="thunk-wishlist-inner">'.do_shortcode('[yith_wcwl_add_to_wishlist icon="th-icon th-icon-favorite_outline" label="" already_in_wishslist_text="Already" browse_wishlist_text=""]' ).'</span></div>';
-       }
  } 
 
 /**********************/
@@ -320,7 +327,7 @@ function open_mart_whish_list($pid){
 /**********************/
 function open_mart_whishlist_url(){
    $wishlist_page_id = '';
-  if (class_exists( 'THWL_Wishlist' )) {
+  if ( shortcode_exists( 'thwl_add_to_wishlist' ) ) {
     $wishlist_page_id =  get_option( 'thwl_page_id' );
   }
   elseif( class_exists( 'YITH_WCWL' ) ){
@@ -333,10 +340,10 @@ return $wishlist_permalink ;
 /** My Account Menu **/
 function open_mart_account(){
  if ( is_user_logged_in() ) {
-  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
+  $return = '<a class="account" href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a>';
   } 
  else {
-  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
+  $return = '<span><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'" aria-label="account" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i></a></span>';
 }
  echo $return;
  }

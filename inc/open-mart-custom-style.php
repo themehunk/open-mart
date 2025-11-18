@@ -386,19 +386,6 @@ $open_mart_style.="body.open-mart-dark a:hover, body.open-mart-dark .open-mart-m
       $open_mart_style.="body.open-mart-dark .top-header:before{background: {$open_mart_above_hd_bg_clr};}";
        $open_mart_style.= "body.open-mart-dark .top-header .top-header-bar{color:{$open_mart_abv_content_txt_clr}} body.open-mart-dark .top-header .top-header-bar a{color:{$open_mart_abv_content_link_clr}} body.open-mart-dark .top-header .top-header-bar a:hover{color:{$open_mart_abv_content_link_hvr_clr}}";
     }
-    //Hide yith if WPC SMART Icon 
-if( (class_exists( 'WPCleverWoosw' ))){
-$open_mart_style.=".woocommerce .entry-summary .yith-wcwl-add-to-wishlist{
-  display:none;
-}
-";
-}
-if( (class_exists( 'WPCleverWooscp' ))){
-$open_mart_style.=" .woocommerce .entry-summary a.compare.button{
-  display:none;
-}
-";
-}
 
     //Move to top 
 $open_mart_move_to_top_bg_clr      = esc_html(get_theme_mod('open_mart_move_to_top_bg_clr'));

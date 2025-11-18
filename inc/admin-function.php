@@ -317,7 +317,7 @@ $open_mart_color_scheme = get_theme_mod( 'open_mart_color_scheme','opn-light' );
 
             	 $classes[] = 'open-mart-light';
          }
-          if( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
+          if( shortcode_exists( 'thwl_add_to_wishlist' ) || shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
                  $classes[] = 'open-mart-wishlist-activate';
          } 
           if( get_theme_mod( 'open_mart_page_lyout_endtoend')==true){

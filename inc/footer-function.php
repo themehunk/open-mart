@@ -9,7 +9,7 @@
  */
 if ( !function_exists('open_mart_full_footer_markup') ) {
 function open_mart_full_footer_markup() { ?>
-  <footer>
+  <footer class="open-mart-footer">
          <?php 
           // top-footer 
           do_action( 'open_mart_top_footer' ); 
