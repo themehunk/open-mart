@@ -142,7 +142,10 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 
 			if ( 'swap' === $hover_style ) {
 
-				$attachment_ids = $product->get_gallery_image_ids();
+				$attachment_ids = ( $p = wc_get_product( get_the_ID() ) ) && is_a( $p, 'WC_Product' )
+        ? (array) $p->get_gallery_image_ids()
+        : [];
+
 
 				if ( $attachment_ids ) {
 
@@ -198,10 +201,13 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 
 			if ( 'swap' === $hover_style && (!is_admin()) && !open_mart_is_blog()){
             global $product;
-			$attachment_ids = $product->get_gallery_image_ids();
-			if(count($attachment_ids) > '0'){
-                $classes[] ='open-mart-swap-item-hover';
-			  }
+			$attachment_ids = ( $p = wc_get_product( get_the_ID() ) ) && is_a( $p, 'WC_Product' )
+        ? (array) $p->get_gallery_image_ids()
+        : [];
+
+    if ( count( $attachment_ids ) ) {
+        $classes[] = 'open-mart-swap-item-hover';
+    }
 
 			if(class_exists('Taiowc_Pro')){
                 $classes[] ='taiowc-fly-cart';

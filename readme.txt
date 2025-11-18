@@ -4,7 +4,7 @@ Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog,
 Requires at least: WordPress 5.0
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -23,6 +23,9 @@ Yes our theme supports builder
 Yes, this theme is tested with latest version of WordPress, you can use it for your site.
 
 == Changelog ==
+
+= 1.3.7 =
+* Update: get_gallery_image_ids on null error removed.
 
 = 1.3.6 =
 * Update:
@@ -184,10 +187,8 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 1.3.5 =
-* Update: Permanent category open in slide-layout1 in header removed.
-* Update: Header and footer cart icon color issue resolved.
-
+= 1.3.7 =
+* Update: get_gallery_image_ids on null error removed.
 
 == Resources ==
  
