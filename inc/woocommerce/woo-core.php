@@ -56,8 +56,8 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 			// Replace Store Sidebars.
 			add_filter( 'open_mart_get_sidebar', array( $this, 'open_mart_replace_store_sidebar' ) );
 		    // quick view ajax.
-			add_action( 'wp_ajax_alm_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
-			add_action( 'wp_ajax_nopriv_alm_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_thnk_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_nopriv_thnk_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
 			add_action('open_mart_woo_quick_view_product_summary', array( $this, 'open_mart_woo_single_product_content_structure' ), 10, 1 );
 			//shop
 			 add_action('woocommerce_before_shop_loop', array($this, 'open_mart_before_shop_loop'), 35);
@@ -308,7 +308,10 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 			);
            wp_localize_script( 'open-mart-woocommerce-js', 'openmart',  $localize );	
            wp_enqueue_script('open-quick-view', OPEN_MART_THEME_URI.'inc/woocommerce/quick-view/js/quick-view.js', array( 'jquery' ), '', true );
-           wp_localize_script('open-quick-view', 'openmartqv', array('ajaxurl' => esc_url(admin_url( 'admin-ajax.php' ))));
+           wp_localize_script('open-quick-view', 'openmartqv', array(
+           	'ajaxurl' => esc_url(admin_url( 'admin-ajax.php' )),
+           	'nonce'   => wp_create_nonce( 'th_quickview_nonce' ),
+           ));
            // pagination
            wp_enqueue_script('open-mart-pagination', OPEN_MART_THEME_URI.'inc/woocommerce/js/shop-pagination.js', array( 'jquery' ), '', true );
             wp_localize_script('open-mart-pagination', 'openmartpagi', apply_filters( 'open_theme_js_localize',array('ajax_url' =>  esc_url(admin_url( 'admin-ajax.php' )))));
@@ -377,11 +380,47 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
         /**
 		 * Quick view ajax
 		 */
+
 		function open_mart_load_product_quick_view_ajax(){
-			if ( ! isset( $_REQUEST['product_id'] ) ){
-				die();
-			}
-			$product_id = intval( $_REQUEST['product_id'] );
+
+
+			 // Verify nonce.
+			    check_ajax_referer( 'th_quickview_nonce', 'nonce' );
+
+			    // Validate product ID.
+			    $product_id = isset( $_POST['product_id'] )
+			        ? absint( wp_unslash( $_POST['product_id'] ) )
+			        : 0;
+
+			    // Invalid ID.
+			    if ( empty( $product_id ) ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Invalid product ID.', 'open-mart' ),
+			            ),
+			            400
+			        );
+			    }
+
+			    // Get product.
+			    $product = wc_get_product( $product_id );
+
+			    // Validate product.
+			    if (
+			        ! $product ||
+			        'product' !== get_post_type( $product_id ) ||
+			        'publish' !== get_post_status( $product_id )
+			    ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Product not found.', 'open-mart' ),
+			            ),
+			            404
+			        );
+			    }
+
 			// set the main wp query for the product.
 			wp( 'p=' . $product_id . '&post_type=product' );
 			// remove product thumbnails gallery.

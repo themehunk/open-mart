@@ -48,4 +48,4 @@ get_template_part('customizer/customizer');
 /******************************/
 get_template_part( 'inc/woocommerce/woo-core');
 get_template_part( 'inc/woocommerce/woo-function');
-get_template_part('inc/woocommerce/woocommerce-ajax');
+
