@@ -573,35 +573,83 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
         /**************************
 		 * Shop Pagination.
 		 **************************/
-		function open_mart_pagination_infinite(){
-         	check_ajax_referer( 'opn-shop-load-more-nonce', 'nonce' );
-			do_action( 'open_mart_pagination_infinite' );
-			$query_vars                   = json_decode( stripslashes( $_POST['query_vars'] ), true );
-			$query_vars['paged']          = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
-			$query_vars['post_status']    = 'publish';
-			$query_vars['posts_per_page'] = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
-			$query_vars                   = array_merge( $query_vars, wc()->query->get_catalog_ordering_args() );
-			$posts = new WP_Query( $query_vars );
+		function open_mart_pagination_infinite() {
 
-			if ( $posts->have_posts() ) {
-				while ( $posts->have_posts() ) {
-					$posts->the_post();
+	check_ajax_referer( 'opn-shop-load-more-nonce', 'nonce' );
 
-					/**
-					 * Woocommerce: woocommerce_shop_loop hook.
-					 *
-					 * @hooked WC_Structured_Data::generate_product_data() - 10
-					 */
-					do_action( 'woocommerce_shop_loop' );
+	do_action( 'open_mart_pagination_infinite' );
 
-					
-					wc_get_template_part( 'content', 'product' );
-				}
-			}
-			wp_reset_query();
+	$query_vars = array();
 
+	if ( isset( $_POST['query_vars'] ) ) {
+
+		$query_vars = json_decode(
+			wp_unslash( $_POST['query_vars'] ),
+			true
+		);
+
+		if ( ! is_array( $query_vars ) ) {
 			wp_die();
-        }
+		}
+	}
+
+	$page_no = 1;
+
+	if ( isset( $_POST['page_no'] ) ) {
+		$page_no = absint( $_POST['page_no'] );
+	}
+
+	/*
+	 * Whitelist allowed query vars.
+	 */
+	$allowed_query_vars = array(
+		'post_type',
+		'tax_query',
+		'meta_query',
+		's',
+		'orderby',
+		'order',
+		'product_cat',
+		'product_tag',
+	);
+
+	$query_vars = array_intersect_key(
+		$query_vars,
+		array_flip( $allowed_query_vars )
+	);
+
+	$query_vars['paged']          = $page_no;
+	$query_vars['post_status']    = 'publish';
+	$query_vars['posts_per_page'] = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
+
+	$query_vars = array_merge(
+		$query_vars,
+		wc()->query->get_catalog_ordering_args()
+	);
+
+	$products = new WP_Query( $query_vars );
+
+	if ( $products->have_posts() ) {
+
+		while ( $products->have_posts() ) {
+
+			$products->the_post();
+
+			/**
+			 * WooCommerce shop loop hook.
+			 *
+			 * @hooked WC_Structured_Data::generate_product_data() 10
+			 */
+			do_action( 'woocommerce_shop_loop' );
+
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
+
+	wp_reset_postdata();
+
+	wp_die();
+}
 
         function shop_pagination(){
 			$pagination = get_theme_mod( 'open_mart_pagination' );
