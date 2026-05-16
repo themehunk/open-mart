@@ -56,8 +56,8 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 			// Replace Store Sidebars.
 			add_filter( 'open_mart_get_sidebar', array( $this, 'open_mart_replace_store_sidebar' ) );
 		    // quick view ajax.
-			add_action( 'wp_ajax_alm_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
-			add_action( 'wp_ajax_nopriv_alm_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_thnk_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_nopriv_thnk_load_product_quick_view', array( $this, 'open_mart_load_product_quick_view_ajax' ) );
 			add_action('open_mart_woo_quick_view_product_summary', array( $this, 'open_mart_woo_single_product_content_structure' ), 10, 1 );
 			//shop
 			 add_action('woocommerce_before_shop_loop', array($this, 'open_mart_before_shop_loop'), 35);
@@ -142,7 +142,10 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 
 			if ( 'swap' === $hover_style ) {
 
-				$attachment_ids = $product->get_gallery_image_ids();
+				$attachment_ids = ( $p = wc_get_product( get_the_ID() ) ) && is_a( $p, 'WC_Product' )
+        ? (array) $p->get_gallery_image_ids()
+        : [];
+
 
 				if ( $attachment_ids ) {
 
@@ -198,10 +201,13 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 
 			if ( 'swap' === $hover_style && (!is_admin()) && !open_mart_is_blog()){
             global $product;
-			$attachment_ids = $product->get_gallery_image_ids();
-			if(count($attachment_ids) > '0'){
-                $classes[] ='open-mart-swap-item-hover';
-			  }
+			$attachment_ids = ( $p = wc_get_product( get_the_ID() ) ) && is_a( $p, 'WC_Product' )
+        ? (array) $p->get_gallery_image_ids()
+        : [];
+
+    if ( count( $attachment_ids ) ) {
+        $classes[] = 'open-mart-swap-item-hover';
+    }
 
 			if(class_exists('Taiowc_Pro')){
                 $classes[] ='taiowc-fly-cart';
@@ -302,7 +308,10 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
 			);
            wp_localize_script( 'open-mart-woocommerce-js', 'openmart',  $localize );	
            wp_enqueue_script('open-quick-view', OPEN_MART_THEME_URI.'inc/woocommerce/quick-view/js/quick-view.js', array( 'jquery' ), '', true );
-           wp_localize_script('open-quick-view', 'openmartqv', array('ajaxurl' => esc_url(admin_url( 'admin-ajax.php' ))));
+           wp_localize_script('open-quick-view', 'openmartqv', array(
+           	'ajaxurl' => esc_url(admin_url( 'admin-ajax.php' )),
+           	'nonce'   => wp_create_nonce( 'th_quickview_nonce' ),
+           ));
            // pagination
            wp_enqueue_script('open-mart-pagination', OPEN_MART_THEME_URI.'inc/woocommerce/js/shop-pagination.js', array( 'jquery' ), '', true );
             wp_localize_script('open-mart-pagination', 'openmartpagi', apply_filters( 'open_theme_js_localize',array('ajax_url' =>  esc_url(admin_url( 'admin-ajax.php' )))));
@@ -371,11 +380,47 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
         /**
 		 * Quick view ajax
 		 */
+
 		function open_mart_load_product_quick_view_ajax(){
-			if ( ! isset( $_REQUEST['product_id'] ) ){
-				die();
-			}
-			$product_id = intval( $_REQUEST['product_id'] );
+
+
+			 // Verify nonce.
+			    check_ajax_referer( 'th_quickview_nonce', 'nonce' );
+
+			    // Validate product ID.
+			    $product_id = isset( $_POST['product_id'] )
+			        ? absint( wp_unslash( $_POST['product_id'] ) )
+			        : 0;
+
+			    // Invalid ID.
+			    if ( empty( $product_id ) ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Invalid product ID.', 'open-mart' ),
+			            ),
+			            400
+			        );
+			    }
+
+			    // Get product.
+			    $product = wc_get_product( $product_id );
+
+			    // Validate product.
+			    if (
+			        ! $product ||
+			        'product' !== get_post_type( $product_id ) ||
+			        'publish' !== get_post_status( $product_id )
+			    ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Product not found.', 'open-mart' ),
+			            ),
+			            404
+			        );
+			    }
+
 			// set the main wp query for the product.
 			wp( 'p=' . $product_id . '&post_type=product' );
 			// remove product thumbnails gallery.
@@ -528,35 +573,83 @@ if ( ! class_exists( 'open_mart_Woocommerce_Ext' ) ) :
         /**************************
 		 * Shop Pagination.
 		 **************************/
-		function open_mart_pagination_infinite(){
-         	check_ajax_referer( 'opn-shop-load-more-nonce', 'nonce' );
-			do_action( 'open_mart_pagination_infinite' );
-			$query_vars                   = json_decode( stripslashes( $_POST['query_vars'] ), true );
-			$query_vars['paged']          = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
-			$query_vars['post_status']    = 'publish';
-			$query_vars['posts_per_page'] = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
-			$query_vars                   = array_merge( $query_vars, wc()->query->get_catalog_ordering_args() );
-			$posts = new WP_Query( $query_vars );
+		function open_mart_pagination_infinite() {
 
-			if ( $posts->have_posts() ) {
-				while ( $posts->have_posts() ) {
-					$posts->the_post();
+	check_ajax_referer( 'opn-shop-load-more-nonce', 'nonce' );
 
-					/**
-					 * Woocommerce: woocommerce_shop_loop hook.
-					 *
-					 * @hooked WC_Structured_Data::generate_product_data() - 10
-					 */
-					do_action( 'woocommerce_shop_loop' );
+	do_action( 'open_mart_pagination_infinite' );
 
-					
-					wc_get_template_part( 'content', 'product' );
-				}
-			}
-			wp_reset_query();
+	$query_vars = array();
 
+	if ( isset( $_POST['query_vars'] ) ) {
+
+		$query_vars = json_decode(
+			wp_unslash( $_POST['query_vars'] ),
+			true
+		);
+
+		if ( ! is_array( $query_vars ) ) {
 			wp_die();
-        }
+		}
+	}
+
+	$page_no = 1;
+
+	if ( isset( $_POST['page_no'] ) ) {
+		$page_no = absint( $_POST['page_no'] );
+	}
+
+	/*
+	 * Whitelist allowed query vars.
+	 */
+	$allowed_query_vars = array(
+		'post_type',
+		'tax_query',
+		'meta_query',
+		's',
+		'orderby',
+		'order',
+		'product_cat',
+		'product_tag',
+	);
+
+	$query_vars = array_intersect_key(
+		$query_vars,
+		array_flip( $allowed_query_vars )
+	);
+
+	$query_vars['paged']          = $page_no;
+	$query_vars['post_status']    = 'publish';
+	$query_vars['posts_per_page'] = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
+
+	$query_vars = array_merge(
+		$query_vars,
+		wc()->query->get_catalog_ordering_args()
+	);
+
+	$products = new WP_Query( $query_vars );
+
+	if ( $products->have_posts() ) {
+
+		while ( $products->have_posts() ) {
+
+			$products->the_post();
+
+			/**
+			 * WooCommerce shop loop hook.
+			 *
+			 * @hooked WC_Structured_Data::generate_product_data() 10
+			 */
+			do_action( 'woocommerce_shop_loop' );
+
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
+
+	wp_reset_postdata();
+
+	wp_die();
+}
 
         function shop_pagination(){
 			$pagination = get_theme_mod( 'open_mart_pagination' );

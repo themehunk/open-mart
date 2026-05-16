@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_mart_setup' ) ) :
-define( 'OPEN_MART_THEME_VERSION','1.3.6');
+define( 'OPEN_MART_THEME_VERSION','1.3.8');
 define( 'OPEN_MART_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 
@@ -96,6 +96,13 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 	// Recommend plugins
 		add_theme_support( 'recommend-plugins', array(
 
+			'th-store-one' => array(
+			   'name' => esc_html__( 'Th Store One', 'open-mart' ),
+			   'img' => 'icon-128x128.png',
+			   'pro_link' =>'',
+			   'active_filename' => 'th-store-one/th-store-one.php',
+			   ),
+
 			'hunk-companion' => array(
                 'name' => esc_html__( 'Hunk Companion (Highly Recommended)', 'open-mart' ),
                 'img' => 'icon-128x128.png',
@@ -154,7 +161,7 @@ define( 'OPEN_MART_THEME_URI', get_template_directory_uri() . '/' );
 			   ),
 		   'lead-form-builder' => array(
 			   'name' => esc_html__( 'Lead Form Builder', 'open-mart' ),
-			   'img' => 'icon-128x128.png',
+			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
 			   'active_filename' => 'lead-form-builder/lead-form-builder.php',
 			   'pro-plugin' => array('slug'=>'lead-form-builder',
