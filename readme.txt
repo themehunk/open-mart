@@ -27,6 +27,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 = 1.3.8 =
 * Update: Nonce added and unused code remove.
 * Update: TH STORE ONE Added.
+* Update: Text Domain updated.
 
 = 1.3.7 =
 * Update: get_gallery_image_ids on null error removed.

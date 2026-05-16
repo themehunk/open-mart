@@ -74,7 +74,7 @@ function default_home() {
 
         wp_send_json_error(
             array(
-                'message' => esc_html__( 'You are not allowed to perform this action.', 'top-store' ),
+                'message' => esc_html__( 'You are not allowed to perform this action.', 'open-mart' ),
             ),
             403
         );
